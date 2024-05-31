@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet">
+<title>aan0303</title>
+<meta charset="UTF-8">
+<meta name="description" content="whoami">
+<meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+<meta name="author" content="Megat Zafran">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="description" content="Nginx (Reverse Proxy)Nginx can be used as a reverse proxy, intercepting communication between the client and the server. By combining it with an AJP module, it is possible to read Tomcat configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSRF Vulnerability">
+<meta property="og:url" content="http://example.com/2024/06/01/ssrf/index.html">
+<meta property="og:site_name" content="aan0303">
+<meta property="og:description" content="Nginx (Reverse Proxy)Nginx can be used as a reverse proxy, intercepting communication between the client and the server. By combining it with an AJP module, it is possible to read Tomcat configuration">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-31T18:58:57.000Z">
+<meta property="article:modified_time" content="2024-05-31T06:33:03.560Z">
+<meta property="article:author" content="Megat Zafran">
+<meta property="article:tag" content="Web Exploitation">
+<meta name="twitter:card" content="summary">
+<link rel="shortcut icon" href="images/avatar.png">
+
+<link rel="stylesheet" href="/css/common.css">
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  <link rel="stylesheet" href="/css/highlight-dark.css" media="screen and (prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/css/highlight-light.css" media="screen and (prefers-color-scheme: light)">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div class="post">
+    <header class="breadcrumb">
+        <a href="/" style="text-decoration: underline; font-style: italic;">Home</a>
+        <span> / </span>
+        <a style="text-decoration: underline; font-style: italic;" href="/2024/06/01/ssrf/">SSRF Vulnerability</a>
+    </header>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx-Reverse-Proxy"><span class="toc-text">Nginx (Reverse Proxy)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apache-Reverse-Proxy"><span class="toc-text">Apache (Reverse Proxy)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSRF-Vulnerabilities"><span class="toc-text">SSRF Vulnerabilities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-vulnerability-parts"><span class="toc-text">The vulnerability parts</span></a></li></ol>
+    <div class="post-body">
+        <h1 class="post-title">SSRF Vulnerability</h1>
+        <div class="post-meta">
+            2024-5-1
+            <span> · </span>
+            
+                <a href="/tags/Web%20Exploitation">#Web Exploitation</a>
+            
+        </div>
+        <div class="post-content"><h2 id="Nginx-Reverse-Proxy"><a href="#Nginx-Reverse-Proxy" class="headerlink" title="Nginx (Reverse Proxy)"></a>Nginx (Reverse Proxy)</h2><p>Nginx can be used as a reverse proxy, intercepting communication between the client and the server. By combining it with an AJP module, it is possible to read Tomcat configuration files.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcats &#123;</span><br><span class="line">        server &lt;TARGET_SERVER&gt;:8009;</span><br><span class="line">        keepalive 10;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line">                ajp_keep_conn on;</span><br><span class="line">                ajp_pass tomcats;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Apache-Reverse-Proxy"><a href="#Apache-Reverse-Proxy" class="headerlink" title="Apache (Reverse Proxy)"></a>Apache (Reverse Proxy)</h2><p>Apache can also be configured as a reverse proxy to read Tomcat configuration files.</p>
+<h2 id="SSRF-Vulnerabilities"><a href="#SSRF-Vulnerabilities" class="headerlink" title="SSRF Vulnerabilities"></a>SSRF Vulnerabilities</h2><p>Server-Side Request Forgery (SSRF) vulnerabilities allow an attacker to abuse server functionality to perform internal or external resource requests on behalf of the server.</p>
+<h2 id="The-vulnerability-parts"><a href="#The-vulnerability-parts" class="headerlink" title="The vulnerability parts"></a>The vulnerability parts</h2><ul>
+<li>Parts of HTTP requests, including URLs.</li>
+<li>File imports such as HTML, PDFs, images, etc.</li>
+<li>Remote server connections to fetch data.</li>
+<li>API specification imports.</li>
+<li>Dashboards with functionalities like ping to check server statuses.-</li>
+</ul>
+</div>
+        <div class="divider"></div>
+    </div>
+</div>
+    </body>
+</html>

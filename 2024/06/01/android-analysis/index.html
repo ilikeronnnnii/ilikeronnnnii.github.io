@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet">
+<title>aan0303</title>
+<meta charset="UTF-8">
+<meta name="description" content="whoami">
+<meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+<meta name="author" content="Megat Zafran">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="description" content="Well during semester break a couple of weeks ago, I’ve done research on Kad Kahwin Scam Analysis APK (will do writeups on it later), so here is what I found regarding Android Analysis Static AnalysisS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android APK Analysis">
+<meta property="og:url" content="http://example.com/2024/06/01/android-analysis/index.html">
+<meta property="og:site_name" content="aan0303">
+<meta property="og:description" content="Well during semester break a couple of weeks ago, I’ve done research on Kad Kahwin Scam Analysis APK (will do writeups on it later), so here is what I found regarding Android Analysis Static AnalysisS">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-01T04:20:16.000Z">
+<meta property="article:modified_time" content="2024-05-31T14:50:57.011Z">
+<meta property="article:author" content="Megat Zafran">
+<meta property="article:tag" content="ReverseEngineering">
+<meta name="twitter:card" content="summary">
+<link rel="shortcut icon" href="images/avatar.png">
+
+<link rel="stylesheet" href="/css/common.css">
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  <link rel="stylesheet" href="/css/highlight-dark.css" media="screen and (prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/css/highlight-light.css" media="screen and (prefers-color-scheme: light)">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div class="post">
+    <header class="breadcrumb">
+        <a href="/" style="text-decoration: underline; font-style: italic;">Home</a>
+        <span> / </span>
+        <a style="text-decoration: underline; font-style: italic;" href="/2024/06/01/android-analysis/">Android APK Analysis</a>
+    </header>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Static-Analysis"><span class="toc-text">Static Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MobSF"><span class="toc-text">MobSF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Methodology"><span class="toc-text">Methodology</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dynamic-Analysis"><span class="toc-text">Dynamic Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-Emulator"><span class="toc-text">Android Emulator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADB"><span class="toc-text">ADB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Burp-Suite"><span class="toc-text">Burp Suite</span></a></li></ol></li></ol>
+    <div class="post-body">
+        <h1 class="post-title">Android APK Analysis</h1>
+        <div class="post-meta">
+            2024-5-1
+            <span> · </span>
+            
+                <a href="/tags/ReverseEngineering">#ReverseEngineering</a>
+            
+        </div>
+        <div class="post-content"><p>Well during semester break a couple of weeks ago, I’ve done research on <strong>Kad Kahwin Scam Analysis APK</strong> (will do writeups on it later), so here is what I found regarding Android Analysis</p>
+<h2 id="Static-Analysis"><a href="#Static-Analysis" class="headerlink" title="Static Analysis"></a>Static Analysis</h2><p>Static analysis is the process of examining files or code without executing them. This involves identifying patterns, signatures, or characteristics that remain consistent and do not change. It is used to detect vulnerabilities, ensure compliance with coding standards, and analyze malware by inspecting its structure and content. This type of analysis can help identify potential issues early in the development process, making it a critical step in both security assessments and software quality assurance.</p>
+<h3 id="MobSF"><a href="#MobSF" class="headerlink" title="MobSF"></a>MobSF</h3><p>So you can use this tool right here it basically automates everything you want regarding Static Analysis</p>
+<h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><ol>
+<li><strong>Permission File</strong>: Review the file permissions to ensure it has the necessary access levels for its intended function.</li>
+<li><strong>Source Code</strong>: Examine the source code for any irregularities or suspicious patterns that could indicate malicious activity.</li>
+<li><strong>Malicious Function</strong>: Identify any functions within the code that perform actions typically associated with malware, such as data exfiltration or unauthorized access.</li>
+<li><strong>Find Command and Control (C2C)</strong>: Look for any code that attempts to connect to a remote server, which could be indicative of a Command and Control server used by the attacker.</li>
+<li><strong>Intention of Threat Actor</strong>: Analyze the behavior of the code to understand the potential intentions of the threat actor, such as stealing data, disrupting services, or gaining unauthorized</li>
+</ol>
+<h2 id="Dynamic-Analysis"><a href="#Dynamic-Analysis" class="headerlink" title="Dynamic Analysis"></a>Dynamic Analysis</h2><p>Dynamic analysis is a technique used in software testing and security assessment where a program is executed and its behavior is observed in real-time. This contrasts with static analysis, which examines code without running it. Dynamic analysis is particularly valuable for identifying runtime issues and security vulnerabilities that may not be apparent through static analysis alone.</p>
+<h3 id="Android-Emulator"><a href="#Android-Emulator" class="headerlink" title="Android Emulator"></a>Android Emulator</h3><p>An Android emulator allows you to simulate an Android device on your computer, providing a controlled environment for testing and analyzing applications. Emulators are essential for dynamic analysis because they enable you to observe the behavior of an app without needing a physical device. Here’s how you can set up and use an Android emulator for dynamic analysis</p>
+<p>Connect to device</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./emulator -list-avds</span><br><span class="line">./emulator -avd Pixel_7_Pro_33_API</span><br></pre></td></tr></table></figure>
+
+<h3 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h3><p>Android Debug Bridge, a versatile command-line tool that lets you communicate with an emulator instance or connected Android device.</p>
+<p>Setting up</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line">adb install path/to/your/app.apk</span><br><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="Burp-Suite"><a href="#Burp-Suite" class="headerlink" title="Burp Suite"></a>Burp Suite</h3><p>Burp Suite is a powerful and popular tool for performing security testing of web applications. It provides a wide range of features that allow you to intercept, inspect, and modify web traffic between your browser and the target application. Burp Suite is essential for identifying vulnerabilities and understanding the behavior of web applications during runtime</p>
+<p>Setting up the proxy is a pain in the ass btw :)</p>
+</div>
+        <div class="divider"></div>
+    </div>
+</div>
+    </body>
+</html>
