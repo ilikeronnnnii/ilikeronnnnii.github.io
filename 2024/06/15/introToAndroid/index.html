@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet">
+<title>aan0303</title>
+<meta charset="UTF-8">
+<meta name="description" content="whoami">
+<meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+<meta name="author" content="Megat Zafran">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="description" content="Over the past few weeks, I have been fortunate to attend Cyber Skills Level Up 1 &amp; 2, hosted by @RE:HACK at UIA and also UM. Throughout the event, I learned a lot of new stuff, but what caught my">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSLU2 - Introduction to Android">
+<meta property="og:url" content="http://example.com/2024/06/15/introToAndroid/index.html">
+<meta property="og:site_name" content="aan0303">
+<meta property="og:description" content="Over the past few weeks, I have been fortunate to attend Cyber Skills Level Up 1 &amp; 2, hosted by @RE:HACK at UIA and also UM. Throughout the event, I learned a lot of new stuff, but what caught my">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/image.png">
+<meta property="og:image" content="http://example.com/images/image2.png">
+<meta property="og:image" content="http://example.com/images/image3.png">
+<meta property="og:image" content="http://example.com/images/image4.png">
+<meta property="og:image" content="http://example.com/images/image5.png">
+<meta property="og:image" content="http://example.com/images/image6.png">
+<meta property="og:image" content="http://example.com/images/image7.png">
+<meta property="og:image" content="http://example.com/images/image8.png">
+<meta property="og:image" content="http://example.com/images/image9.png">
+<meta property="og:image" content="http://example.com/images/image10.png">
+<meta property="og:image" content="http://example.com/images/image11.png">
+<meta property="article:published_time" content="2024-06-14T18:58:56.000Z">
+<meta property="article:modified_time" content="2024-06-14T03:58:56.837Z">
+<meta property="article:author" content="Megat Zafran">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/image.png">
+<link rel="shortcut icon" href="/images/avatar.png">
+
+<link rel="stylesheet" href="/css/common.css">
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  <link rel="stylesheet" href="/css/highlight-dark.css" media="screen and (prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/css/highlight-light.css" media="screen and (prefers-color-scheme: light)">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div class="post">
+    <header class="breadcrumb">
+        <a href="/" style="text-decoration: underline; font-style: italic;">Home</a>
+        <span> / </span>
+        <a style="text-decoration: underline; font-style: italic;" href="/2024/06/15/introToAndroid/">CSLU2 - Introduction to Android</a>
+    </header>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Init"><span class="toc-text">Init</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Downloading-AVD"><span class="toc-text">Downloading AVD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rooting-AVD"><span class="toc-text">Rooting AVD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-root"><span class="toc-text">How to root?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-up-proxy"><span class="toc-text">Setting up proxy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSL-Bypass"><span class="toc-text">SSL Bypass</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-SSL-Pinning"><span class="toc-text">What is SSL Pinning?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-bypass-it"><span class="toc-text">How to bypass it?</span></a></li></ol></li></ol>
+    <div class="post-body">
+        <h1 class="post-title">CSLU2 - Introduction to Android</h1>
+        <div class="post-meta">
+            2024-5-15
+            <span> · </span>
+            
+                <a href="/tags/Android">#Android</a>
+            
+        </div>
+        <div class="post-content"><p>Over the past few weeks, I have been fortunate to attend Cyber Skills Level Up 1 &amp; 2, hosted by <strong><a target="_blank" rel="noopener" href="https://www.linkedin.com/company/rehack-xyz/">@RE:HACK</a></strong> at UIA and also UM. Throughout the event, I learned a lot of new stuff, but what caught my attention the most was Introduction to Android by <strong><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/kelvintwl01/">@Kelvin Teo</a></strong>. Since I have a memory like a goldfish, I think it would be great to start making write-ups&#x2F;notes for this kind of workshop.</p>
+<h1 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h1><p>First of there are a couple of initial setups that you need to do in order to run AVD (Android Virtual Device) in your machine and getting full control of your device, which consist of:-</p>
+<ol>
+<li>Downloading a new AVD</li>
+<li>Rooting AVD</li>
+<li>Setting up a proxy on AVD</li>
+</ol>
+<h2 id="Downloading-AVD"><a href="#Downloading-AVD" class="headerlink" title="Downloading AVD"></a>Downloading AVD</h2><p>If you have downloaded Android Studio before on your machine, it should come with a tool called Android Emulator. It helps you create your own AVD. Feel free to select the type of phone and system image that you want to use. Personally, I choose Pixel 7 Pro with API 27 as my AVD.</p>
+<img src="/images/image.png" style="width:75%;vertical-align:middle;">
+
+<p>Now that you created one emulator, you can turn it on using Android Studio or just use the command prompt instead. To turn it on using command prompt, follow the steps:-</p>
+<ol>
+<li>Go to this path C:&#x2F;Users&#x2F;{your username}&#x2F;AppData&#x2F;Local&#x2F;Android&#x2F;Sdk&#x2F;emulator</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd C:/Users/&#123;your username&#125;/AppData/Local/Android/Sdk/emulator</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>List all AVD installed on your machine</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emulator.exe -list-avds</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Run your AVD</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emulator.exe -avd &quot;Name of your AVD&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Rooting-AVD"><a href="#Rooting-AVD" class="headerlink" title="Rooting AVD"></a>Rooting AVD</h2><p>This brings back a lot of memories. When I was a kid, I used to do this all the time in my old tablet to cheat&#x2F;hack in mobile games. I remember there was a mobile application that was quite similar to cheat engine, forgot what it was called though, but you needed to root your device in order to use the application.</p>
+<p>Back then, I didn’t really know what rooting did to your device though. Apparently, it is used to:-</p>
+<ul>
+<li>Setup proxy</li>
+<li>Install and execute of custom scripts</li>
+<li>Test applications</li>
+</ul>
+<p>Comparing it to non-rooted devices:-</p>
+<ul>
+<li>Limited capability to test applications</li>
+<li>Only trust third-party certificate at a user-level</li>
+</ul>
+<h3 id="How-to-root"><a href="#How-to-root" class="headerlink" title="How to root?"></a>How to root?</h3><p>Just use <a target="_blank" rel="noopener" href="https://github.com/newbit1/rootAVD">rootAVD</a>, a script that is capable of rooting your AVD using Magisk automatically within seconds.</p>
+<ol>
+<li>Clone it on your machine</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/newbit1/rootAVD.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Get into the rootAVD directory and run rootAVD executables&#x2F;shell</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd rootAVD</span><br><span class="line">rootAVD.bat</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>List all AVDs that can be rooted</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootAVD.bat listAllAVDs</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Make sure your AVD is running and run the root script by using the ramdisk.img file of your AVD</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rootAVD.bat &#123;your system-images path&#125;/ramdisk.img</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>Reboot your AVD</p>
+</li>
+<li><p>Run Magisk &amp; reboot again</p>
+</li>
+<li><p>Your device is rooted!</p>
+</li>
+</ol>
+<h2 id="Setting-up-proxy"><a href="#Setting-up-proxy" class="headerlink" title="Setting up proxy"></a>Setting up proxy</h2><p>Here is the most difficult part for me. I hate setting up proxies.</p>
+<p>There are 3 packages that you need to install&#x2F;import in your AVD</p>
+<ul>
+<li>MagiskFrida</li>
+<li>PlayIntegrityFix</li>
+<li>AlwaysTrustUserCert</li>
+</ul>
+<img src="/images/image2.png" style="width:75%;vertical-align:middle;"/>
+
+<p>After you have installed, every one of the packages, reboot your AVD.</p>
+<p>Now it’s time to boot up your BurpSuite and go to Tools &gt; Proxy</p>
+<img src="/images/image3.png" style="width:75%;vertical-align:middle;" />
+
+<p>After that, add new proxy listeners to your host machine IP, you can find it using ipconfig command in terminal for windows. Also, use any available port; in this case I’m using port 9000</p>
+<img src="/images/image4.png" style="width:75%;vertical-align:middle;"/>
+
+<p>Now you need to manually set up the proxy on AVD, go to wifi settings and choose AndroidWifi &gt; Modify Network</p>
+<img src="/images/image5.png" style="width:75%;vertical-align:middle;"/>
+
+<p>Then add your proxy listeners IP and port</p>
+<img src="/images/image6.png" style="width:75%;vertical-align:middle;" />
+
+<p>Go to chrome and visit <a target="_blank" rel="noopener" href="https://burp/">https://burp</a> to download the CA cert, then rename your cert to .cer instead of .der</p>
+<p>Now go to Settings &gt; Security &gt; Encryption &amp; Credentials &gt; Install a certificate to download CA cert, then reboot your device</p>
+<p>Go back to Chrome and try to browse YouTube and verify the communication can be intercepted by the proxy</p>
+<img src="/images/image7.png" style="width:75%;vertical-align:middle;" />
+
+<p>Now that everything is perfectly set up, we can use this to learn SSL Bypass</p>
+<h1 id="SSL-Bypass"><a href="#SSL-Bypass" class="headerlink" title="SSL Bypass"></a>SSL Bypass</h1><p>Usually, security researchers come across a problem when they are trying to test Android Applications because they can’t bypass SSL Pinning using conventional tools&#x2F;techniques</p>
+<h2 id="What-is-SSL-Pinning"><a href="#What-is-SSL-Pinning" class="headerlink" title="What is SSL Pinning?"></a>What is SSL Pinning?</h2><p>SSL pinning is a security technique used to prevent man-in-the-middle (MiTM) attacks (such as proxies) by ensuring that an application only trusts a specific certificate or public key, rather than any certificate issued by trusted Certificate Authorities (CAs).</p>
+<p>This adds an extra layer of security by binding (“pinning”) the application to a known and trusted certificate or public key.</p>
+<h2 id="How-to-bypass-it"><a href="#How-to-bypass-it" class="headerlink" title="How to bypass it?"></a>How to bypass it?</h2><p>When the client has a 3rd party certificate to perform a MiTM attack, the communication channel will not happen. Therefore in order to bypass it here are the steps:-</p>
+<ol>
+<li>Install frida in your host machine</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install frida</span><br><span class="line">pip3 install frida-tools</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Install <strong><a target="_blank" rel="noopener" href="https://github.com/frida/frida/releases">frida-server</a></strong> in your AVD, and run it</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb.exe push frida-server-16.0.10-android-x86 /data/local/tmp/frida-server</span><br><span class="line">adb.exe shell &quot;chmod 755 /data/local/tmp/frida-server&quot;</span><br><span class="line">adb.exe shell &quot;/data/local/tmp/frida-server &amp;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Or you can just straight away go to the directory and run .&#x2F;frida-server</p>
+<ol start="3">
+<li>To verify that Frida is working, first check the process that is currently running in AVD</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida-ps -U</span><br></pre></td></tr></table></figure>
+
+<img src="/images/image8.png" style="width:55%;horizontal-align:middle;" />
+
+<ol start="4">
+<li><p>Finally you can test SSL Pinning bypass by using one of <strong><a target="_blank" rel="noopener" href="https://github.com/httptoolkit/android-ssl-pinning-demo">this</a></strong> demo application made by <strong><a target="_blank" rel="noopener" href="https://x.com/pimterry">@pimterry</a></strong></p>
+</li>
+<li><p>Initially <strong>without</strong> intercepting the communication using proxy, every pinned request is allowed since there is no suspected MiTM attack</p>
+</li>
+</ol>
+<img src="/images/image9.png" style="width:35%;vertical-align:middle;" />
+
+<ol start="6">
+<li>After that, when proxy is turned on, most of the types pinned request got rejected</li>
+</ol>
+<img src="/images/image10.png" style="width:35%;vertical-align:middle;" />
+
+<ol start="7">
+<li>In order to bypass all this pinned request use one of this <strong><a target="_blank" rel="noopener" href="https://codeshare.frida.re/@KaiserBloo/ssl-and-root-bypass/">script</a></strong> in frida, to run it, in your host machine use this command</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida -U --codeshare KaiserBloo/ssl-and-root-bypass -f package_name</span><br></pre></td></tr></table></figure>
+
+<p>the package name can be retrieved by running this command</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida-ps -U -a</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  PID  Name              Identifier</span><br><span class="line">-----  ----------------  ---------------------------------------</span><br><span class="line">13456  Calendar          com.google.android.calendar</span><br><span class="line">19294  Chrome            com.android.chrome</span><br><span class="line">16371  Clock             com.google.android.deskclock</span><br><span class="line">12800  Google            com.google.android.googlequicksearchbox</span><br><span class="line">12800  Google            com.google.android.googlequicksearchbox</span><br><span class="line">17151  Magisk            com.topjohnwu.magisk</span><br><span class="line">18188  Phone             com.google.android.dialer</span><br><span class="line">13393  Photos            com.google.android.apps.photos</span><br><span class="line">19555  SSL Pinning Demo  tech.httptoolkit.pinning_demo</span><br><span class="line">14859  YouTube           com.google.android.youtube</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida -U --codeshare KaiserBloo/ssl-and-root-bypass -f tech.httptoolkit.pinning_demo</span><br></pre></td></tr></table></figure>
+
+<p>Make sure you add the parameter -U if not this process will not be working since it will run it in your local system instead of your emulator</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">     ____</span><br><span class="line">    / _  |   Frida 16.3.3 - A world-class dynamic instrumentation toolkit</span><br><span class="line">   | (_| |</span><br><span class="line">    &gt; _  |   Commands:</span><br><span class="line">   /_/ |_|       help      -&gt; Displays the help system</span><br><span class="line">   . . . .       object?   -&gt; Display information about &#x27;object&#x27;</span><br><span class="line">   . . . .       exit/quit -&gt; Exit</span><br><span class="line">   . . . .</span><br><span class="line">   . . . .   More info at https://frida.re/docs/home/</span><br><span class="line">   . . . .</span><br><span class="line">   . . . .   Connected to Local System (id=local)</span><br><span class="line">Failed to spawn: unable to find executable at &#x27;tech.httptoolkit.pinning_demo&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>As you can see now, there are a couple of pinned request that can be by passed</p>
+<img src="/images/image11.png" style="width:85%;vertical-align:middle;" />
+</div>
+        <div class="divider"></div>
+    </div>
+</div>
+    </body>
+</html>
