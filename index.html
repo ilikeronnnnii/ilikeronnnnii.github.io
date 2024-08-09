@@ -1,94 +1,163 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
 <title>aan0303</title>
-<meta charset="UTF-8">
-<meta name="description" content="whoami">
-<meta name="keywords" content="aan0303, megat, ilikeronnnnii">
-<meta name="author" content="Megat Zafran">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="description" content="whoami">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aan0303">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="aan0303">
-<meta property="og:description" content="whoami">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Megat Zafran">
-<meta property="article:tag" content="aan0303, megat, ilikeronnnnii">
-<meta name="twitter:card" content="summary">
-<link rel="shortcut icon" href="/images/avatar.png">
-
-<link rel="stylesheet" href="/css/common.css">
 
 
-  
-<link rel="stylesheet" href="/css/index.css">
+
+    <link rel="icon" href="/favicon.png">
 
 
 
 
-
-
-    <meta name="generator" content="Hexo 7.2.0"></head>
-    <body>
-        <div class="home">
-    <img class="avatar" src="/images/avatar2.png" />
-    <h1 class="post-title">aan0303</h1>
-    <p><strong>hit me up @ </strong><a href="https://github.com/ilikeronnnnii" target="_blank">
-    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width:25px;height:25px;vertical-align:middle;"></a>
-    </p>
-    <div class="nav-bar">
+    <!-- stylesheets list from _config.yml -->
     
-        <a class="nav-bar-item-title" href="/">Home</a>
+    <link rel="stylesheet" href="/css/style.css">
     
-        <a class="nav-bar-item-title" href="/About">About</a>
+
+
+
+    <!-- scripts list from _config.yml -->
     
-        <a class="nav-bar-item-title" href="/Tools">Tools</a>
+    <script src="/js/script.js"></script>
     
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+    <div class="container profile-container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/archives"><img src="/image/avatar.png"></a>
+        </div>
+        <div class="nickname">aan0303</div>
+        <div class="description"><p>a blank slate, an empty hard drive</p>
 </div>
-    <div class="articles-list">
-    
-        <div class="article-preview">
-            <div class="article-preview-top">
-                <a href="/2024/06/24/wanictf/" class="article-preview-top-title-link"><span class="article-preview-top-title">WaniCTF Writeups</span></a>
-                <span class="article-preview-top-date">2024-5-24</span>
-            </div>
-            <p class="article-preview-content"></p>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Twitter" target="_blank" rel="noopener" href="https://twitter.com/ilikeronnnnii">
+                        
+                        
+                            <i class="iconfont icon-twitter"></i>
+                        
+                    </a>
+                
+                    <a class="link-item" title="Github" target="_blank" rel="noopener" href="https://github.com/ilikeronnnnii">
+                        
+                        
+                            <i class="iconfont icon-github"></i>
+                        
+                    </a>
+                
+            
         </div>
-    
-        <div class="article-preview">
-            <div class="article-preview-top">
-                <a href="/2024/06/15/introToAndroid/" class="article-preview-top-title-link"><span class="article-preview-top-title">CSLU2 - Introduction to Android</span></a>
-                <span class="article-preview-top-date">2024-5-15</span>
-            </div>
-            <p class="article-preview-content"></p>
-        </div>
-    
-        <div class="article-preview">
-            <div class="article-preview-top">
-                <a href="/2024/06/01/android-analysis/" class="article-preview-top-title-link"><span class="article-preview-top-title">Android APK Analysis</span></a>
-                <span class="article-preview-top-date">2024-5-1</span>
-            </div>
-            <p class="article-preview-content"></p>
-        </div>
-    
-        <div class="article-preview">
-            <div class="article-preview-top">
-                <a href="/2024/06/01/ssrf/" class="article-preview-top-title-link"><span class="article-preview-top-title">SSRF Vulnerability</span></a>
-                <span class="article-preview-top-date">2024-5-1</span>
-            </div>
-            <p class="article-preview-content"></p>
-        </div>
-    
+    </div>
 </div>
-    <!-- <div class="page-switcher">
-    <a class="page-switcher-number" href="/">1</a>
-    
-</div> -->
-</div>
-    </body>
+
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
 </html>

