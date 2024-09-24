@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>RentasCTF 2024 | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">RentasCTF 2024</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 10, 2024&nbsp;&nbsp;15:20:59</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Writeups/">Writeups</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>This is one of the most memorable CTF events for me since I’ve decided to bring along a couple of my friends from SECRH: derf, Arif, akim, Rohman, and Hisyam.</p>
+<p>I’m pretty sure they were traumatized by how hard it is to solve the questions. </p>
+<p>PS - I didn’t know it was going to be that hard since the challenges at rAKSASA were too damn easy compared to rENTAS.</p>
+<p><img src="/images/rentas.png" alt="test"></p>
+<p>Luckily, we managed to get into the top 30 thus bringing us to the final stage of Rentas.</p>
+<h2 id="OSINT"><a href="#OSINT" class="headerlink" title="OSINT"></a>OSINT</h2><h3 id="Medellin-Cartel-Cali-Cartel"><a href="#Medellin-Cartel-Cali-Cartel" class="headerlink" title="Medellin Cartel + Cali Cartel"></a>Medellin Cartel + Cali Cartel</h3><p>This is one of the most complex OSINT challenges I’ve encountered, so it gives you this picture from the Medellin Cartel Challenge. </p>
+<p><img src="/images/rentas2.jpeg" alt="test"></p>
+<p>Doing some reverse image search tells us that the source of the image is a Reddit post on r&#x2F;Narcos.</p>
+<p>So I searched the keyword RWSC in the subreddit, and it accidentally gave me the second challenge flag instead of the first one. LMAO</p>
+<p><img src="/images/rentas.avif" alt="test"></p>
+<p>flag <code>RWSC&#123;C4L1_C4RT3L_PWN3D&#125;</code></p>
+<p>I didn’t solve the first part, though, which is frustrating.</p>
+<h2 id="DFIR"><a href="#DFIR" class="headerlink" title="DFIR"></a>DFIR</h2><h3 id="Last-Hope"><a href="#Last-Hope" class="headerlink" title="Last Hope"></a>Last Hope</h3><blockquote>
+<p>Question: flag &#x3D; RWSC{wifipass}</p>
+</blockquote>
+<p>Going into the challenge, they first gave us a .cap file containing raw data and metadata captured over a network transmission.</p>
+<p>When I got the cap file, I first tried to find out the protocol of the packets using Wireshark, which is identified as 802.11. </p>
+<p><img src="/images/rentas3.png" alt="test"></p>
+<p>Here, I find out that one of the packets is vulnerable to brute force that will eventually show the wifi password.</p>
+<p><img src="/images/rentas4.png" alt="test"></p>
+<p>After performing the brute force using wifite.txt wordlist, the password shown as <code>anonymous</code></p>
+<p><img src="/images/rentas5.png" alt="test"></p>
+<p>flag <code>RWSC&#123;anonymous&#125;</code></p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Lah-Itu-Je"><a href="#Lah-Itu-Je" class="headerlink" title="Lah Itu Je?"></a>Lah Itu Je?</h3><p>First, when we look at the website, we are presented with a login form.</p>
+<p><img src="/images/rentas6.png" alt="test"></p>
+<p>Intercepting it using burp suite shows that there is another path called register.php</p>
+<p><img src="/images/rentas7.png" alt="test"></p>
+<p>After creating an account and logging in, it redirected to dashboard.php; right after that, pressing the get flag will redirect you to another page, which is flag.php</p>
+<p><img src="/images/rentas8.png" alt="test"></p>
+<p><img src="/images/rentas9.png" alt="test"></p>
+<p>We did this by checking the page source and looking at script.js; the js file is obfuscated inside the file. Therefore, we need to use the javascript deobsfucator</p>
+<p><img src="/images/rentas10.png" alt="test"></p>
+<p>Next, we just run the generateCode() function using the console, then it will alert the code; however, making a POST request with the code doesn’t provide the solution, and  another alert box comes out</p>
+<p><img src="/images/rentas11.png" alt="test"></p>
+<p>After banging my head against the wall for 4 hours straight, I decided to wait for the clues.</p>
+<p><img src="/images/rentas12.png" alt="test"></p>
+<p>Here, it states to shoot to the “head.” I guess we need to change the request from post to head.</p>
+<p>Nope, I was wrong; moving on to another clue, shoot the “host.”, here I changed the host header to localhost, and it provided a strange response.</p>
+<p><img src="/images/rentas13.png" alt="rest"></p>
+<p>200 OK and Error executing curl request: Empty reply from server</p>
+<p>Hm, it is clear that it is a vulnerability of SSRF via Host Header</p>
+<p><img src="https://payatu.com/blog/unveiling-the-secrets-of-http-host-header-attacks/#:~:text=Server%2DSide%20Request%20Forgery%20(SSRF,header%20of%20an%20HTTP%20request.)" alt="For reference"></p>
+<p>Therefore, all I need to do is create my domain using the request in the website and inspect the request</p>
+<p><img src="/images/rentas14.png" alt="test"></p>
+<p>Lastly, decode the flag from Base64</p>
+<p>flag <code>RWSC&#123;b045887cbadfda25b29db243a18de38cb1cbfb14&#125;</code></p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Hidden-Discord"><a href="#Hidden-Discord" class="headerlink" title="Hidden Discord"></a>Hidden Discord</h3><blockquote>
+<p>Question: Starting point: (<a href="https://discord[.]gg/7aMtftbDY4">https://discord[.]gg/7aMtftbDY4</a>)</p>
+</blockquote>
+<p>Disclaimer: I and I was trying to solve this challenge until 3 am but still have no clue where the flag is hiding except for three flags, which is the icon of the server, voice channel message, and the event description</p>
+<p>But thank god rohman (nenowo) managed to solve it the next day while I was sleeping</p>
+<p>First what he did was he went straight into the voice channel and click the chat button</p>
+<p><img src="/images/rentas15.png" alt="test"></p>
+<p>Next, he takes a look at the event description</p>
+<p><img src="/images/rentas17.png" alt="test"></p>
+<p>Later on, he discovered that to find out the rest of the flags, you need to make use of the <a target="_blank" rel="noopener" href="https://betterdiscord.app/">BetterDiscord</a> application and use the <a target="_blank" rel="noopener" href="https://github.com/YofukashiNo/ShowHiddenChannels/tree/main">showhiddenchannels</a> plugin</p>
+<p>After setting it up, go straight ahead into the server, and voila, it shows the hidden category</p>
+<p><img src="/images/rentas18.png" alt="test"></p>
+<p>Later on, there is also a hidden channel that provides another part of the flag which is located at the role</p>
+<p><img src="/images/rentas19.png" alt="test"></p>
+<p>The hidden channel name also implies that there is a part of the flag at the icon of the server</p>
+<p><img src="/images/rentas20.png" alt="test"></p>
+<p>To grab the server icon, here is what he did: first, he went to Discord Web and then to the element pane. </p>
+<p><img src="/images/rentas21.png" alt="test"></p>
+<p>Then he copied the src of the image</p>
+<p><img src="/images/rentas22.png" alt="test"></p>
+<p>Even though he managed to grab the image now, he encountered a new problem: the image wasn’t that clear since the gray text was blurry</p>
+<p><img src="/images/rentas23.avif" alt="test"></p>
+<p>So, change the? size in the URL to 4096.</p>
+<p><img src="/images/rentas24.avif" alt="test"></p>
+<p>flag <code>RWSC&#123;r34d_d15c0rd_d3v3l0p3r_API_r3f3r3nc3&#125;</code></p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h2 id="Roundandround"><a href="#Roundandround" class="headerlink" title="Roundandround"></a>Roundandround</h2><p>Disclaimer: This challenge is also solved by Rohman (nenowo)</p>
+<p>Upon downloading the cipher2.txt file, here is what we got 2126226{19122929121712_6121911821_26422_842928}</p>
+<p>Since the first couple of flag formats must be RWSC letters, it is quite obvious that we need to use number to letter decrypter</p>
+<p><img src="/images/rentas23.png" alt="test"></p>
+<p>We get UZVF{SLBIBILQL_FLSKHU_ZDV_HDBIBH} as a result</p>
+<p>Okay this part I have no clue how he did it, but after reading the solutions, the text was encrypted using Pizzini Cipher, and this is how he managed to find out that was the solution</p>
+<p><img src="/images/rentas25.avif" alt="test"></p>
+<p>flag <code>RWSC&#123;PIZZINI_CIPHER_WAS_EAZY&#125;</code></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2024/03/11/rentasctf/">https://ilikeronnnnii.github.io/2024/03/11/rentasctf/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/06/01/ssrf/">SSRF Vulnerability</a>
+            
+            
+            <a class="next" rel="next" href="/2024/02/18/broncoctf/">BroncoCTF 2024</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

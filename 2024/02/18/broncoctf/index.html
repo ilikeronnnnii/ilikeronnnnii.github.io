@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>BroncoCTF 2024 | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">BroncoCTF 2024</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 17, 2024&nbsp;&nbsp;13:49:54</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Writeups/">Writeups</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>This CTF reminds me of the rAWSEC 2023 event. The difficulty isn’t that hard, but you can learn a lot from it, really suitable for beginners like me</p>
+</blockquote>
+<p><img src="/images/bronco.png" alt="test"></p>
+<h2 id="Steganography"><a href="#Steganography" class="headerlink" title="Steganography"></a>Steganography</h2><h3 id="Shrekanana-Banana"><a href="#Shrekanana-Banana" class="headerlink" title="Shrekanana Banana"></a>Shrekanana Banana</h3><p>I was given this image of Shrek in a Banana, but I can’t help but feel like I am missing something…</p>
+<p><img src="/images/bronco.avif" alt="test"></p>
+<p>This is a steganography challenge, I’ll straight away use this website to solve it <code>https://www.aperisolve.com/</code></p>
+<p><img src="/images/bronco2.png" alt="test"></p>
+<p>flag <code>bronco&#123;shr3konogr@phy&#125;</code></p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="Keyboard-Elitist"><a href="#Keyboard-Elitist" class="headerlink" title="Keyboard Elitist"></a>Keyboard Elitist</h3><p>My buddy is bragging about how cool his Framework laptop is and how much faster he can type than me.</p>
+<p>When I tried to type a message, it came out as garbage!</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A;;apfkgij gj;ukd ar ut ghur war a Qwfpgj efjbyaps yk a Cyifmae uk;lg rchfmf maefr ghur iyye iuef dapbadf. Mj tpufks ur sftukugfij a efjbyaps rkyb, ylg hfpf wugh hur mysliap tpamfwype ia;gy;. Rudh, fughfp waj... hfpf ur ghf tiadO bpykcy&#123;qwfpgj_vr_c0ifm@e&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This is a substitution cypher; you can use this website to decode it: <code>https://planetcalc.com/8047/</code></p>
+<p><img src="/images/bronco2.avif" alt="test"></p>
+<p>Another method is to use the Colemak converter.</p>
+<p><img src="/images/bronco3.avif" alt="test"></p>
+<p>flag <code>bronco&#123;qwerty_vs_c0lem@k&#125;</code></p>
+<h2 id="OSINT"><a href="#OSINT" class="headerlink" title="OSINT"></a>OSINT</h2><h3 id="Wiki-Wiki-Wiki"><a href="#Wiki-Wiki-Wiki" class="headerlink" title="Wiki Wiki Wiki"></a>Wiki Wiki Wiki</h3><blockquote>
+<p>Not much to go off here, but it’s all you need: Wikipedia and 128.125.52.138. The flag is not in the typical format, but wrap it in bronco{} before submitting. You will know when you find it.</p>
+</blockquote>
+<p>This is an OSINT Challenge. My first strategy would be to go to Wikipedia and use the search engine to find out if the IP Address has anything to do with it.</p>
+<p><img src="/images/bronco4.avif" alt="test"></p>
+<p>From my observation, it lists the contributors from the same IP Address, so I decided to look at the changes that have been made to the contributor.</p>
+<p><img src="/images/bronco3.png" alt="test"></p>
+<p>If you look at the competitions section, it shows the flag; therefore, by appending the flag to the format given, we got the flag. </p>
+<p>flag <code>bronco&#123;cNi76bV2IVERlh97hP&#125;</code></p>
+<h3 id="ACM-Borg-Members"><a href="#ACM-Borg-Members" class="headerlink" title="ACM Borg Members"></a>ACM Borg Members</h3><blockquote>
+<p>I am convinced the board members of Santa Clara’s ACM clubs are cyborgs! They are definitely digitally enhanced! ACM Board? More like, ACM-BORG! If only I had a way of proving it.</p>
+</blockquote>
+<p>Alright, by looking at the quotes, I have no clue what’s going on—until the part where it says cyborgs.<br>Cyborgs might be the clue for the robots.txt file; what is that? </p>
+<p><img src="/images/bronco4.png" alt="test"></p>
+<p>So now we need to find the URLs of Santa Clara’s ACM members and browse its robots.txt file.</p>
+<p><code>https://www.scuacm.com/robots.txt</code></p>
+<p>flag <code>bronco&#123;be3p_b0op_@CM_are_cyb0rgs&#125;</code></p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Countries-Unite"><a href="#Countries-Unite" class="headerlink" title="Countries Unite"></a>Countries Unite</h3><blockquote>
+<p>“yoshie” sent me a peculiar message. What could he possibly be trying to say?</p>
+</blockquote>
+<p><img src="/images/bronco5.avif" alt="test"></p>
+<p>This challenge is quite easy; just find out the first letter of each country, and then you’ll get the flag </p>
+<p>flag <code>bronco&#123;diveristyequityinclusion&#125;</code></p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Blue-Boy-Storage"><a href="#Blue-Boy-Storage" class="headerlink" title="Blue Boy Storage"></a>Blue Boy Storage</h3><blockquote>
+<p>This blue boy saved something on his home planet but cannot seem to find it. Can you help him?<br><code>https://blue.web.broncoctf.xyz</code></p>
+</blockquote>
+<p>When it comes to web challenges, I usually go straight into the view page source file and find out what script file is attached to the website.</p>
+<p><img src="/images/bronco6.avif" alt="test"></p>
+<p>The index-mXi4uzfe.js file seems quite interesting. Therefore, I will examine it and Ctrl+F Bronco.</p>
+<p>flag <code>broncoctf&#123;ab4_d3_4ba_d1e_1m_blu3&#125;</code></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2024/02/18/broncoctf/">https://ilikeronnnnii.github.io/2024/02/18/broncoctf/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/03/11/rentasctf/">RentasCTF 2024</a>
+            
+            
+            <a class="next" rel="next" href="/2024/02/17/lactf/">LACTF 2024</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

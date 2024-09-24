@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>LACTF 2024 | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">LACTF 2024</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 16, 2024&nbsp;&nbsp;14:09:58</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Writeups/">Writeups</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>Challenges from LA CTF hosted by ACM Cyber at UCLA and Psi Beta Rho</p>
+</blockquote>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Terms-and-Conditions"><a href="#Terms-and-Conditions" class="headerlink" title="Terms and Conditions"></a>Terms and Conditions</h3><blockquote>
+<p>Welcome to LA CTF 2024! All you have to do is accept the terms and conditions and you get a flag!</p>
+</blockquote>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/l2XeNOcEx94?si=PyxMt6Bj2-l1ariI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>To press the accept button in step 1, you need to resize the screen so that it will let you open the inspection panel (there is a specific size that will trigger the “NO CONSOLE ALLOWED”)</p>
+<p><img src="/images/bronco5.png" alt="test"></p>
+<p>This code checks if the height of the browser window <code>(window.innerHeight)</code> is not equal to the variable <code>height</code>, or if the width of the browser window <code>(window.innerWidth)</code> is not equal to the variable <code>width</code>. If either of these conditions is true, the code inside the curly braces will be executed.</p>
+<p><img src="/images/bronco6.png" alt="test"></p>
+<p>Once you manage to do so, grab the button’s ID—in this case, it is “accept.” Go to the console and click the button with this command. <code>accept.click()</code></p>
+<p>flag <code>lactf&#123;that_button_was_definitely_not_one_of_the_terms&#125;</code></p>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Infinite-Loop"><a href="#Infinite-Loop" class="headerlink" title="Infinite Loop"></a>Infinite Loop</h3><blockquote>
+<p>I found this google form but I keep getting stuck in a loop! Can you leak to me the contents of form and the message at the end so I can get credit in my class for submitting? Thank you!</p>
+</blockquote>
+<p><img src="/images/bronco7.png" alt="test"></p>
+<p>Looking at the Google form is presented with team name questions, and after pressing next, it will repeatedly ask the same questions, which is 1+1. If you insert your answer and press next, it will ask the same questions repeatedly.</p>
+<p>Like always, my approach here is to go to the inspect element, CTRL+F, and find the flag last.</p>
+<p><img src="/images/bronco8.png" alt="test"></p>
+<p>As you can see, it is separated into two parts.</p>
+<p>flag <code>lactf&#123;l34k1ng_4h3_f04mz_s3cr3tz&#125;</code></p>
+<h2 id="Reverse-Engineering"><a href="#Reverse-Engineering" class="headerlink" title="Reverse Engineering"></a>Reverse Engineering</h2><blockquote>
+<p>I swear I knew what the flag was but I can’t seem to remember it anymore… can you dig it out from my inner psyche?</p>
+</blockquote>
+<p>We were given a file, so I first tried to find out what type of file it was.</p>
+<p><img src="/images/bronco9.png" alt="test"></p>
+<p>Huh, so it is an ELF 64-bit. Therefore, we can reverse engineer it using Ghidra and take a look at the decompile panel. </p>
+<p><img src="/images/bronco10.png" alt="test"></p>
+<p>If you look at the code above, it compares the user input with the specified flag. Therefore, we need to reconstruct it until it provides the output telling us that we have already got the flag</p>
+<p>flag <code>lactf&#123;not_what_forgive_and_forget_means&#125;</code></p>
+<h2 id="Steganography"><a href="#Steganography" class="headerlink" title="Steganography"></a>Steganography</h2><blockquote>
+<p>NOTE: Unfortunately we goofed up and uploaded the wrong file. As it’s too late into the CTF to fix, we will be leaving the challenge as-is. Yes, you can just hear the flag in the audio file directly. I can’t figure out what my friend is trying to tell me. They sent me this recording and told me that the important stuff is at 40 kHz (??? what does that even mean).</p>
+</blockquote>
+<p>This is my very first challenge that is related to audio steganography, it is really easy just hear the NATO Phonetic Alphabet and translate it into a flag</p>
+<p>flag <code>lactf&#123;c4n_y0u_plz_unm1x_my_s1gn4lz&#125;</code></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2024/02/17/lactf/">https://ilikeronnnnii.github.io/2024/02/17/lactf/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/02/18/broncoctf/">BroncoCTF 2024</a>
+            
+            
+            <a class="next" rel="next" href="/2024/01/21/mapnactf/">MapnaCTF 2024</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
