@@ -304,18 +304,18 @@
 <p>So, let’s try the first option, change the extension and try to open it. </p>
 <p><img src="/images/coba3.png" alt="alt text"></p>
 <p>Given this error, it is most likely the second option. Let’s open <a target="_blank" rel="noopener" href="https://hexed.it/">Hexed.it</a> for further inspection. </p>
-<p><img src="/images/coba5.png" alt="alt text"></p>
+<p><img src="/images/coba99.png" alt="alt text"></p>
 <p>This is the output we get (we get more, but this is what we are interested in). From this we can see 2 interesting things, the first 4 bytes <code>FF D8 FF E0</code> is the magic bytes for jpg but the IHDR is something shown for png file. So, either the author changed the file signature or he changed the JFIF(JPG) into IHDR. Let’s try changing the magic bytes into png one and try it first. </p>
-<p><img src="/images/coba6.png" alt="alt text"></p>
+<p><img src="/images/coba5.png" alt="alt text"></p>
 <p>Looks like the author just changed the leading bytes. But remember they could also change the IHDR just to mess with us. Looking at the png, it is just a picture of capybara and nothing interesting is there. Let’s try AperiSolve and see if it could find something for us. </p>
-<p><img src="/images/coba7.png" alt="alt text"></p>
+<p><img src="/images/coba6.png" alt="alt text"></p>
 <p>Hmmm there is a text behind the png with telling password is secret. Maybe it is for the other photo or it could also be for this photo. Well it is better to leave no stone unturned so let’s add the password in AperiSolve and try for this png too.  </p>
-<p><img src="/images/coba8.png" alt="alt text"></p>
+<p><img src="/images/coba32.png" alt="alt text"></p>
 <p>This is where you put the password, just below the main page where you submit the png too. But to no luck, it seems that the password is for the other picture and hopefully we are done with this picture. Let’s go to doge.jpg now. </p>
 <p>Try to open it in <a target="_blank" rel="noopener" href="https://hexed.it/">hexed.it</a> just like what we done for capybara.png. </p>
-<p><img src="/images/coba9.png" alt="alt text"></p>
+<p><img src="/images/civa.png" alt="alt text"></p>
 <p>Looks like the author just changed the leading bytes here lol. Change it to <code>FF D8 FF E0</code> and save it.</p>
-<p><img src="/images/coba10.png" alt="alt text"></p>
+<p><img src="/images/coba9.png" alt="alt text"></p>
 <p>Now let’s put this on AperiSolve with the password we got from capybara.png (<code>secret</code>).</p>
 
         </div>
