@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>Briefing Session Challenges | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Briefing Session Challenges</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">November 15, 2024&nbsp;&nbsp;23:45:27</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/CyberX/">CyberX</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="OSINT"><a href="#OSINT" class="headerlink" title="OSINT"></a>OSINT</h1><h2 id="Don’t-Get-Caught"><a href="#Don’t-Get-Caught" class="headerlink" title="Don’t Get Caught"></a>Don’t Get Caught</h2><blockquote>
+<p>Description: it looks like an individual going by the handle <code>@_simpleadam</code> has been caught spreading a secret link to the CyberX group without permission! Your task is to trace his social media just by googling really, and find out the flag from his account :b</p>
+</blockquote>
+<p>So here what you need to do is investigate any account that is linked to the alias <code>@_simpleadam</code></p>
+<p>We can try a simple google search for this!</p>
+<p><img src="/images/briefimage.png" alt="alt text"></p>
+<p>Now as you can see the first result shows that the account belongs to an instagram account. Now it’s time for you to investigate it even more!</p>
+<p><img src="/images/briefimage1.png" alt="alt text"></p>
+<p>As you can see in the bio there is the flag! <code>CyberX&#123;y0u_g0t_m3&#125;</code></p>
+<h2 id="Jangan-Pandang-Belakang"><a href="#Jangan-Pandang-Belakang" class="headerlink" title="Jangan Pandang Belakang"></a>Jangan Pandang Belakang</h2><blockquote>
+<p>Description: Near UTM’s Makmal Einstein, there’s another eerie place… Just a short walk away, this building is known for strange events. People hear footsteps in empty rooms, see shadows in glass reflections, and experience random equipment failures. Isolated and dimly lit, it leaves visitors feeling watched. While Makmal Einstein is spooky, this place may be where the real mysteries are…</p>
+</blockquote>
+<p>The first thing that you need to do is find out the nearest building to UTM’s Makmal Einstein, but how? You can try Google Maps.</p>
+<p><img src="/images/briefimage2.png" alt="alt text"></p>
+<p>Here as you can see the nearest building that is shown on the map is P18. Now investigate more information about that building!</p>
+<p><img src="/images/briefimage3.png" alt="alt text"></p>
+<p>Notice that there are 5 reviewers… weird eh? Try to check it out</p>
+<p><img src="/images/briefimage4.png" alt="alt text"></p>
+<p>Then, there is the flag lol <code>CyberX&#123;funny_looking_bulding&#125;</code></p>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Common-Developer-Oopsies-1"><a href="#Common-Developer-Oopsies-1" class="headerlink" title="Common Developer Oopsies 1"></a>Common Developer Oopsies 1</h2><h3 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h3><blockquote>
+<p>Description: They left confidential credentials on their website or exposed them publicly on the internet.</p>
+</blockquote>
+<p>Website: <a target="_blank" rel="noopener" href="https://joboncampus.com/login.php">https://joboncampus.com/login.php</a></p>
+<p><img src="/images/oopimage.png" alt="alt text"></p>
+<p>So the first clue is that the developer left some credentials on the website… let’s to see if there are any comments left on the page..?</p>
+<p><img src="/images/oopimage2.png" alt="alt text"></p>
+<p>There it is now let’s try to login using the credentials left carelessly by the developer</p>
+<p><img src="/images/oopimage3.png" alt="alt text"></p>
+<p><code>CyberX&#123;1s_1t_t0o_h4rd_t0_r3m3mb3r&#125;</code></p>
+<h3 id="try-me"><a href="#try-me" class="headerlink" title="try me"></a>try me</h3><p>website: <a target="_blank" rel="noopener" href="https://joboncampus.com/upgradedlogin.php">https://joboncampus.com/upgradedlogin.php</a></p>
+<h2 id="Common-Developer-Oopsies-2"><a href="#Common-Developer-Oopsies-2" class="headerlink" title="Common Developer Oopsies 2"></a>Common Developer Oopsies 2</h2><h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><blockquote>
+<p>Description: Insecure Direct Object References (IDOR)</p>
+</blockquote>
+<p>Website: <a target="_blank" rel="noopener" href="https://joboncampus.com/profile.php">https://joboncampus.com/profile.php</a></p>
+<p><img src="/images/brief1image.png" alt="alt text"></p>
+<p>First looking at the website there is a button show my profile.</p>
+<p><img src="/images/brief2image-1.png" alt="alt text"></p>
+<p>After clicking it, it shows the details of the profile.</p>
+<p><img src="/images/brief3image-2.png" alt="alt text"></p>
+<p>Apart from that url updated with a parameter <code>id</code> with the value of <code>1</code> </p>
+<p>To determine if the website is vulnerable to <a target="_blank" rel="noopener" href="https://portswigger.net/web-security/access-control/idor">IDOR(Insecure Direct Object Reference)</a> attack try to change the value of <code>id</code> and see if the profile changes.</p>
+<p><img src="/images/brief4image.png" alt="alt text"></p>
+<p>As you can see it changes to another profile :]<br>So now your goal is try to find any other account that is potentially might be related to the administrator. Let’s try to change the <code>id</code> into <code>4</code></p>
+<p><img src="/images/brief5image.png" alt="alt text"></p>
+<p>There goes the administrator account! </p>
+<p><img src="/images/brief6image.png" alt="alt text"></p>
+<p><code>CyberX&#123;id0r_1s_n0t_h4rd!&#125;</code></p>
+<h3 id="try-me-1"><a href="#try-me-1" class="headerlink" title="try me"></a>try me</h3><p>This challenge is the same as before, but the <code>id</code> value is encoded with <code>md5</code> hash.</p>
+<p><img src="/images/hashimage.png" alt="alt text"></p>
+<p>How do I identify if it’s <code>md5</code>? Well if you’ve tried a lot of CTF challenges, it is easy to recognize what kind of encryption the ciphertext is.</p>
+<p>For beginners you can try this cipher identifier <a target="_blank" rel="noopener" href="https://www.dcode.fr/cipher-identifier">https://www.dcode.fr/cipher-identifier</a>!</p>
+<p><img src="/images/hashimage1.png" alt="alt text"></p>
+<p>Insert the hash and press analyze, now take a look at the left side of the UI. It will show you what kind of encryption it is. Looks like md5 tho.</p>
+<p><img src="/images/hashimage2.png" alt="alt text"></p>
+<p>So in previous cases, the administrator account id is <code>4</code>, so lets try to encode <code>4</code> with <code>md5</code> and use its hash as the <code>id</code> value. Yes, you can use <a target="_blank" rel="noopener" href="https://www.dcode.fr/">https://www.dcode.fr</a> to encode the value 4 to md5, or you can try <a target="_blank" rel="noopener" href="https://cyberchef.net/">cyberchef</a> works too.</p>
+<p><img src="/images/hashimage3.png" alt="alt text"></p>
+<p><img src="/images/hashimage4.png" alt="alt text"></p>
+<p>There goes the flag :], yes its the same as the previous one.</p>
+<p><img src="/images/hashimage5.png" alt="alt text"></p>
+<p><code>CyberX&#123;id0r_1s_n0t_h4rd!&#125;</code></p>
+<h2 id="Common-Developer-Oopsies-3"><a href="#Common-Developer-Oopsies-3" class="headerlink" title="Common Developer Oopsies 3"></a>Common Developer Oopsies 3</h2><h3 id="Demo-1"><a href="#Demo-1" class="headerlink" title="Demo"></a>Demo</h3><blockquote>
+<p>Description: Insecure Direct Object References (IDOR) - Through Cookies</p>
+</blockquote>
+<p>Website: <a target="_blank" rel="noopener" href="https://joboncampus.com/biskut.php">https://joboncampus.com/biskut.php</a></p>
+<p>So here if you take a look at the cookie by going to the developer tools.. <code>inspect</code> &gt; <code>application</code> &gt; find <code>cookies</code> tab &gt; find the <code>website</code> &gt; now take a look at <code>user_id</code> name and its value.</p>
+<p><img src="/images/biskutimage.png" alt="alt text"></p>
+<p>Try to change it, then press somewhere on the webpage to make sure the value is set to the one that you changed, in this case lets try <code>4</code> and <code>refresh</code> the page!</p>
+<p><img src="/images/biskutimage2.png" alt="alt text"></p>
+<p><code>CyberX&#123;im_cr4v1ng_4_c00kies!&#125;</code></p>
+<h3 id="try-me-2"><a href="#try-me-2" class="headerlink" title="try me"></a>try me</h3><p>Website: <a target="_blank" rel="noopener" href="https://joboncampus.com/upgradedbiskut.php">https://joboncampus.com/upgradedbiskut.php</a></p>
+<p>Same method, here if you take a look at the cookie by going to the developer tools.. <code>inspect</code> &gt; <code>application</code> &gt; find <code>cookies</code> tab &gt; find the <code>website</code> &gt; now take a look at <code>user_id</code> name and its value.</p>
+<p>Now instead of a single decimal value, it is encoded in <code>md5</code> hash, so try to encode the value <code>4</code> with <code>md5</code> hash and <code>refresh</code> the page!</p>
+<p><img src="/images/biskutimage3.png" alt="alt text"></p>
+<p><code>CyberX&#123;im_cr4v1ng_4_c00kies_3v3n_m0r3!&#125;</code></p>
+<h1 id="Forensic"><a href="#Forensic" class="headerlink" title="Forensic"></a>Forensic</h1><p>So, for the digital forensic challenge, we were given a zip file containing 1 jpg named doge and 1 png file named capybara. </p>
+<p><img src="/images/coba.png" alt="alt text"></p>
+<p>So, the first step in the challenge is to try opening it (remember if you cannot open the file then there is no forensic to be done). And as to no one surprise, you cannot open both of the files :). </p>
+<p><img src="/images/coba1.png" alt="alt text"></p>
+<p>Well, I know that I said if you cannot open it, you cannot forensic it, but you can still try a few stuffs. One of them is checking the metadata of both files. </p>
+<p><img src="/images/coba2.png" alt="alt text"></p>
+<p>While this step can be discarded since none of the exiftool online is giving the correct output unlike the one in linux, this step gives us few valuable information, for example from the modification date&#x2F;time section we can that capybara.png was modified first, then only doge.jpg was modified.</p>
+<p>With this info on the timeline of the files, we can do the forensic on the capybara.png file first before moving to doge.jpg. Well, we could also see that capybara.png has extension of png but exiftool is giving us the file type of jpg. This leaves us with 2 options, either the extension is changed or the magic bytes is changed. </p>
+<p>So, let’s try the first option, change the extension and try to open it. </p>
+<p><img src="/images/coba3.png" alt="alt text"></p>
+<p>Given this error, it is most likely the second option. Let’s open <a target="_blank" rel="noopener" href="https://hexed.it/">Hexed.it</a> for further inspection. </p>
+<p><img src="/images/coba5.png" alt="alt text"></p>
+<p>This is the output we get (we get more, but this is what we are interested in). From this we can see 2 interesting things, the first 4 bytes <code>FF D8 FF E0</code> is the magic bytes for jpg but the IHDR is something shown for png file. So, either the author changed the file signature or he changed the JFIF(JPG) into IHDR. Let’s try changing the magic bytes into png one and try it first. </p>
+<p><img src="/images/coba6.png" alt="alt text"></p>
+<p>Looks like the author just changed the leading bytes. But remember they could also change the IHDR just to mess with us. Looking at the png, it is just a picture of capybara and nothing interesting is there. Let’s try AperiSolve and see if it could find something for us. </p>
+<p><img src="/images/coba7.png" alt="alt text"></p>
+<p>Hmmm there is a text behind the png with telling password is secret. Maybe it is for the other photo or it could also be for this photo. Well it is better to leave no stone unturned so let’s add the password in AperiSolve and try for this png too.  </p>
+<p><img src="/images/coba8.png" alt="alt text"></p>
+<p>This is where you put the password, just below the main page where you submit the png too. But to no luck, it seems that the password is for the other picture and hopefully we are done with this picture. Let’s go to doge.jpg now. </p>
+<p>Try to open it in <a target="_blank" rel="noopener" href="https://hexed.it/">hexed.it</a> just like what we done for capybara.png. </p>
+<p><img src="/images/coba9.png" alt="alt text"></p>
+<p>Looks like the author just changed the leading bytes here lol. Change it to <code>FF D8 FF E0</code> and save it.</p>
+<p><img src="/images/coba10.png" alt="alt text"></p>
+<p>Now let’s put this on AperiSolve with the password we got from capybara.png (<code>secret</code>).</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2024/11/16/cyberx1/">https://ilikeronnnnii.github.io/2024/11/16/cyberx1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/10/16/iboh24/">IBOHCTF 2024</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
