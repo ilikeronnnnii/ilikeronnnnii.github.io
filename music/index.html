@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>Music | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                
+
+<div class="container win98-container">
+  <div class="post-wrap music-win98">
+    <!-- Username and scrobble info -->
+    <div class="user-profile">
+      <img id="user-avatar" src="" alt="User avatar" class="user-avatar" />
+      <div class="user-info">
+        <h3 id="username"></h3>
+        <p id="scrobble-count" class="scrobble-count"></p>
+        <p class="profile-link">
+          <a id="profile-url" href="" target="_blank">View Full Profile</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="music-panels">
+      <!-- Recently Played -->
+      <div class="panel">
+        <div class="panel-header">
+          <img
+            src="https://win98icons.alexmeub.com/icons/png/media_player-0.png"
+            width="16"
+            height="16"
+            alt="Recent"
+          />
+          <span>Recently Played</span>
+        </div>
+        <div class="panel-content">
+          <table class="win98-table">
+            <thead>
+              <tr>
+                <th>Track</th>
+                <th>Artist</th>
+                <th class="time-col">Time <span class="sort-arrow">▲</span></th>
+              </tr>
+            </thead>
+            <tbody id="recent-tracks">
+              <!-- Tracks will be loaded here -->
+              <tr class="loading-row">
+                <td colspan="3">Loading tracks...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Artists -->
+      <div class="panel">
+        <div class="panel-header">
+          <img
+            src="https://win98icons.alexmeub.com/icons/png/directory_favorites-5.png"
+            width="16"
+            height="16"
+            alt="Artists"
+          />
+          <span>Top Artists (Month)</span>
+        </div>
+        <div class="panel-content">
+          <table class="win98-table">
+            <thead>
+              <tr>
+                <th class="rank-col">#</th>
+                <th>Artist</th>
+                <th class="plays-col">
+                  Plays <span class="sort-arrow">▲</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="top-artists">
+              <!-- Artists will be loaded here -->
+              <tr class="loading-row">
+                <td colspan="3">Loading artists...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Tracks -->
+      <div class="panel">
+        <div class="panel-header">
+          <img
+            src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd-0.png"
+            width="16"
+            height="16"
+            alt="Tracks"
+          />
+          <span>Top Tracks (Month)</span>
+        </div>
+        <div class="panel-content">
+          <table class="win98-table">
+            <thead>
+              <tr>
+                <th class="rank-col">#</th>
+                <th>Track</th>
+                <th class="plays-col">
+                  Plays <span class="sort-arrow">▲</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="top-tracks">
+              <!-- Tracks will be loaded here -->
+              <tr class="loading-row">
+                <td colspan="3">Loading tracks...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const apiKey =
+    "69a2e01731688cd53ba3c0e6a8b90057";
+  document.addEventListener("DOMContentLoaded", function () {
+    // Last.fm API configuration
+    const username = "ilikeronnnnii";
+    const recentLimit = 10; // Number of recent tracks to display
+    const topLimit = 15; // Number of top artists/tracks to display
+
+    // User profile elements
+    const userAvatar = document.getElementById("user-avatar");
+    const usernameEl = document.getElementById("username");
+    const scrobbleCount = document.getElementById("scrobble-count");
+    const profileUrl = document.getElementById("profile-url");
+
+    // Table body elements
+    const recentTracksEl = document.getElementById("recent-tracks");
+    const topArtistsEl = document.getElementById("top-artists");
+    const topTracksEl = document.getElementById("top-tracks");
+
+    // Detect dark mode from Chic theme
+    const detectDarkMode = () => {
+      // Check if body has dark-theme class (Chic theme's approach)
+      const isDarkMode = document.body.classList.contains("dark-theme");
+
+      // Apply dark mode class to our container
+      const container = document.querySelector(".win98-container");
+      if (container) {
+        if (isDarkMode) {
+          container.classList.add("dark");
+        } else {
+          container.classList.remove("dark");
+        }
+      }
+    };
+
+    // Initial dark mode detection
+    detectDarkMode();
+
+    // Listen for dark mode changes
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.attributeName === "class") {
+          detectDarkMode();
+        }
+      });
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+    // Fetch user info
+    fetch(
+      `https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${username}&api_key=${apiKey}&format=json`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.user) {
+          const user = data.user;
+          userAvatar.src =
+            user.image[2]["#text"] ||
+            "https://win98icons.alexmeub.com/icons/png/user-0.png";
+          usernameEl.textContent = user.name;
+          scrobbleCount.textContent = `${parseInt(
+            user.playcount
+          ).toLocaleString()} scrobbles`;
+          profileUrl.href = user.url;
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching user info:", error);
+      });
+
+    // Fetch recent tracks
+    fetch(
+      `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&limit=${recentLimit}&format=json`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        recentTracksEl.innerHTML = "";
+
+        if (data.recenttracks && data.recenttracks.track) {
+          const tracks = data.recenttracks.track;
+
+          tracks.forEach((track, index) => {
+            const isNowPlaying =
+              track["@attr"] && track["@attr"].nowplaying === "true";
+            const timeInfo = isNowPlaying
+              ? "Now playing"
+              : track.date
+              ? `${getTimeAgo(track.date.uts)}`
+              : "";
+            const rowClass = index % 2 === 0 ? "" : "alt-row";
+
+            const row = document.createElement("tr");
+            row.className = rowClass;
+
+            row.innerHTML = `
+              <td class="track-cell">
+                <a href="${track.url}" target="_blank" title="${track.name}">${track.name}</a>
+              </td>
+              <td>${track.artist["#text"]}</td>
+              <td class="time-cell">${timeInfo}</td>
+            `;
+
+            recentTracksEl.appendChild(row);
+          });
+        } else {
+          recentTracksEl.innerHTML =
+            '<tr><td colspan="3">No recent tracks found</td></tr>';
+        }
+      })
+      .catch((error) => {
+        recentTracksEl.innerHTML =
+          '<tr><td colspan="3">Error loading tracks</td></tr>';
+        console.error("Error fetching recent tracks:", error);
+      });
+
+    // Fetch top artists
+    fetch(
+      `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${apiKey}&period=1month&limit=${topLimit}&format=json`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        topArtistsEl.innerHTML = "";
+
+        if (data.topartists && data.topartists.artist) {
+          const artists = data.topartists.artist;
+
+          artists.forEach((artist, index) => {
+            const rowClass = index % 2 === 0 ? "" : "alt-row";
+
+            const row = document.createElement("tr");
+            row.className = rowClass;
+
+            row.innerHTML = `
+              <td class="rank-cell">${index + 1}</td>
+              <td>
+                <a href="${artist.url}" target="_blank">${artist.name}</a>
+              </td>
+              <td class="plays-cell">${artist.playcount} plays</td>
+            `;
+
+            topArtistsEl.appendChild(row);
+          });
+        } else {
+          topArtistsEl.innerHTML =
+            '<tr><td colspan="3">No top artists found</td></tr>';
+        }
+      })
+      .catch((error) => {
+        topArtistsEl.innerHTML =
+          '<tr><td colspan="3">Error loading artists</td></tr>';
+        console.error("Error fetching top artists:", error);
+      });
+
+    // Fetch top tracks
+    fetch(
+      `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${apiKey}&period=1month&limit=${topLimit}&format=json`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        topTracksEl.innerHTML = "";
+
+        if (data.toptracks && data.toptracks.track) {
+          const tracks = data.toptracks.track;
+
+          tracks.forEach((track, index) => {
+            const rowClass = index % 2 === 0 ? "" : "alt-row";
+
+            const row = document.createElement("tr");
+            row.className = rowClass;
+
+            row.innerHTML = `
+              <td class="rank-cell">${index + 1}</td>
+              <td>
+                <a href="${track.url}" target="_blank">${track.name}</a>
+                <span class="artist-name">- ${track.artist.name}</span>
+              </td>
+              <td class="plays-cell">${track.playcount} plays</td>
+            `;
+
+            topTracksEl.appendChild(row);
+          });
+        } else {
+          topTracksEl.innerHTML =
+            '<tr><td colspan="3">No top tracks found</td></tr>';
+        }
+      })
+      .catch((error) => {
+        topTracksEl.innerHTML =
+          '<tr><td colspan="3">Error loading tracks</td></tr>';
+        console.error("Error fetching top tracks:", error);
+      });
+
+    // Helper function to format time ago
+    function getTimeAgo(timestamp) {
+      const now = Math.floor(Date.now() / 1000);
+      const seconds = now - parseInt(timestamp);
+
+      if (seconds < 60) return "Just now";
+      if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+      if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+      return `${Math.floor(seconds / 86400)}d ago`;
+    }
+
+    // Function to fix panel content height on mobile
+    function adjustPanelHeights() {
+      const panelContents = document.querySelectorAll(".panel-content");
+      const isMobile = window.innerWidth <= 768;
+
+      panelContents.forEach((panel) => {
+        // On mobile, ensure scroll behavior works correctly
+        if (isMobile) {
+          // Set max-height based on content
+          panel.style.height = "auto";
+          panel.style.maxHeight = "180px";
+        } else {
+          // On desktop, use fixed height
+          panel.style.height = "180px";
+          panel.style.maxHeight = "none";
+        }
+      });
+    }
+
+    // Run on page load
+    adjustPanelHeights();
+
+    // Run when window is resized
+    window.addEventListener("resize", adjustPanelHeights);
+
+    // Additional fix for iOS Safari scrolling issues
+    const panelContents = document.querySelectorAll(".panel-content");
+    panelContents.forEach((panel) => {
+      panel.addEventListener(
+        "touchstart",
+        function (event) {
+          const scrollTop = panel.scrollTop;
+          const scrollHeight = panel.scrollHeight;
+          const height = panel.clientHeight;
+          const maxScroll = scrollHeight - height;
+
+          // Prevent default scroll behavior when at the top or bottom edge
+          if (
+            (scrollTop <= 0 &&
+              event.touches[0].screenY > event.touches[0].clientY) ||
+            (scrollTop >= maxScroll &&
+              event.touches[0].screenY < event.touches[0].clientY)
+          ) {
+            event.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Fix for panel scrolling on mobile
+    function fixMobileScroll() {
+      if (window.innerWidth <= 768) {
+        // Get all panels
+        const panels = document.querySelectorAll(".panel-content");
+
+        // For each panel, ensure it can be scrolled properly
+        panels.forEach((panel) => {
+          // Make sure panel height isn't restricting content
+          panel.style.height = "auto";
+          panel.style.maxHeight = panel.classList.contains("last-panel")
+            ? "300px"
+            : "250px";
+
+          // Force redraw to ensure scrolling works
+          panel.style.display = "none";
+          void panel.offsetHeight; // Trigger reflow
+          panel.style.display = "";
+        });
+
+        // Add special class to last panel for extra styling
+        const lastPanel = document.querySelector(
+          ".music-panels > .panel:last-child .panel-content"
+        );
+        if (lastPanel) {
+          lastPanel.classList.add("last-panel");
+        }
+      }
+    }
+
+    // Run on load
+    fixMobileScroll();
+
+    // Also run on resize
+    window.addEventListener("resize", fixMobileScroll);
+
+    // Fix for iOS momentum scrolling issues within panels
+    document.querySelectorAll(".panel-content").forEach((panel) => {
+      panel.addEventListener(
+        "touchstart",
+        function (e) {
+          if (this.scrollHeight > this.clientHeight) {
+            e.stopPropagation();
+          }
+        },
+        { passive: true }
+      );
+    });
+  });
+</script>
+
+<style>
+  /* Windows 98 Theme */
+  :root {
+    --win98-bg: #c0c0c0;
+    --win98-bg-light: #dfdfdf;
+    --win98-bg-dark: #808080;
+    --win98-text: #000000;
+    --win98-highlight: #000080;
+    --win98-link: #0000ff;
+    --win98-visited: #800080;
+    --win98-shadow-light: #ffffff;
+    --win98-shadow-dark: #808080;
+    --win98-border-width: 2px;
+    --win98-row-alt: #f0f0f0;
+    --win98-scrollbar-bg: #c0c0c0;
+    --win98-scrollbar-thumb: #808080;
+  }
+
+  /* Container styles */
+  .win98-container {
+    font-family: "MS Sans Serif", Arial, sans-serif;
+    color: var(--win98-text);
+    padding: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* User profile section */
+  .user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .post-wrap p {
+    font-size: 1em;
+    margin: 0em 0 0em 0;
+  }
+
+  .user-avatar {
+    width: 64px;
+    height: 64px;
+    border: var(--win98-border-width) solid;
+    border-color: var(--win98-shadow-dark) var(--win98-shadow-light)
+      var(--win98-shadow-light) var(--win98-shadow-dark);
+    margin-right: 15px;
+  }
+
+  .user-info h3 {
+    margin: 0 0 0 0;
+    font-size: 16px;
+  }
+
+  .scrobble-count {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+  }
+
+  .profile-link {
+    margin: 5px 0 0 0;
+    font-size: 11px;
+  }
+
+  .profile-link a {
+    color: var(--win98-link);
+  }
+
+  .profile-link a:visited {
+    color: var(--win98-visited);
+  }
+
+  /* Panel layout */
+  .music-panels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .panel {
+    flex: 1;
+    min-width: 250px;
+    border: var(--win98-border-width) solid;
+    border-color: var(--win98-shadow-light) var(--win98-shadow-dark)
+      var(--win98-shadow-dark) var(--win98-shadow-light);
+    background-color: var(--win98-bg);
+  }
+
+  .panel-header {
+    background-color: var(--win98-highlight);
+    color: white;
+    padding: 2px 4px;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  .panel-header img {
+    margin-right: 4px;
+    vertical-align: text-bottom;
+  }
+
+  .panel-content {
+    height: 180px;
+    overflow-y: auto;
+    border: 1px solid var(--win98-shadow-dark);
+    border-top: none;
+  }
+
+  /* Scrollbar styling */
+  .panel-content::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  .panel-content::-webkit-scrollbar-track {
+    background: var(--win98-scrollbar-bg);
+    border-left: 1px solid var(--win98-shadow-dark);
+  }
+
+  .panel-content::-webkit-scrollbar-thumb {
+    background: var(--win98-scrollbar-bg);
+    border: var(--win98-border-width) solid;
+    border-color: var(--win98-shadow-light) var(--win98-shadow-dark)
+      var(--win98-shadow-dark) var(--win98-shadow-light);
+  }
+
+  /* Table styles */
+  .win98-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+  }
+
+  .win98-table th {
+    background-color: var(--win98-bg);
+    text-align: left;
+    padding: 4px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid var(--win98-shadow-dark);
+  }
+
+  .win98-table td {
+    padding: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .win98-table a {
+    color: var(--win98-link);
+    text-decoration: none;
+  }
+
+  .win98-table a:visited {
+    color: var(--win98-visited);
+  }
+
+  .win98-table tr.alt-row {
+    background-color: var(--win98-row-alt);
+  }
+
+  /* Table cell specific styles */
+  .rank-col,
+  .rank-cell {
+    width: 30px;
+    text-align: center;
+  }
+
+  .rank-cell {
+    font-weight: bold;
+  }
+
+  .time-col,
+  .time-cell {
+    width: 80px;
+    text-align: right;
+  }
+
+  .plays-col,
+  .plays-cell {
+    width: 80px;
+    text-align: right;
+  }
+
+  .track-cell {
+    max-width: 150px;
+  }
+
+  .sort-arrow {
+    font-size: 10px;
+    vertical-align: middle;
+  }
+
+  .artist-name {
+    color: #808080;
+    font-size: 11px;
+    margin-left: 3px;
+  }
+
+  .loading-row td {
+    text-align: center;
+    padding: 10px;
+    color: #808080;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .music-panels {
+      flex-direction: column;
+    }
+
+    .panel {
+      min-width: 100%;
+      margin-bottom: 15px; /* Add margin between panels */
+    }
+
+    /* Ensure panel content can be fully scrolled */
+    .panel-content {
+      max-height: 180px; /* Use max-height instead of fixed height */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    /* Fix scroll behavior on mobile */
+    .win98-table {
+      table-layout: fixed; /* Prevent table from expanding beyond container */
+    }
+
+    /* Add bottom padding to ensure the last row is fully visible when scrolled */
+    .win98-table tbody:after {
+      content: "";
+      display: block;
+      height: 10px; /* Padding at the bottom of the scrollable area */
+    }
+  }
+
+  /* Additional fixes for very small screens */
+  @media (max-width: 480px) {
+    .win98-container {
+      padding: 10px 5px;
+    }
+  }
+
+  /* Dark mode adjustments */
+  .dark.win98-container,
+  .win98-container.dark {
+    /* Enable dark mode with better contrast & readability */
+    --win98-bg: #3a3a3a;
+    --win98-bg-light: #5a5a5a;
+    --win98-bg-dark: #2a2a2a;
+    --win98-text: #e0e0e0;
+    --win98-highlight: #000080;
+    --win98-link: #6495ed;
+    --win98-visited: #d8bfd8;
+    --win98-shadow-light: #5a5a5a;
+    --win98-shadow-dark: #1a1a1a;
+    --win98-row-alt: #444444;
+    color: var(--win98-text);
+  }
+
+  /* Improved dark mode text readability for user profile */
+  .dark.win98-container .user-info h3,
+  .win98-container.dark .user-info h3 {
+    color: #ffffff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .dark.win98-container .scrobble-count,
+  .win98-container.dark .scrobble-count {
+    color: #cccccc;
+  }
+
+  .dark.win98-container .profile-link a,
+  .win98-container.dark .profile-link a {
+    color: #6495ed;
+    background-color: #2a2a2a;
+    border-color: #5a5a5a #1a1a1a #1a1a1a #5a5a5a;
+  }
+
+  .dark.win98-container .profile-link a:hover,
+  .win98-container.dark .profile-link a:hover {
+    background-color: #3a3a3a;
+  }
+
+  /* Table styles in dark mode */
+  .dark.win98-container .win98-table a,
+  .win98-container.dark .win98-table a {
+    color: #6495ed;
+  }
+
+  .dark.win98-container .win98-table a:visited,
+  .win98-container.dark .win98-table a:visited {
+    color: #d8bfd8;
+  }
+
+  .dark.win98-container .artist-name,
+  .win98-container.dark .artist-name {
+    color: #aaaaaa;
+  }
+
+  .dark.win98-container .panel-header,
+  .win98-container.dark .panel-header {
+    background-color: #000080;
+  }
+
+  .dark.win98-container .win98-table th,
+  .win98-container.dark .win98-table th {
+    background-color: #3a3a3a;
+    border-bottom: 1px solid #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .dark.win98-container .win98-table tr.alt-row,
+  .win98-container.dark .win98-table tr.alt-row {
+    background-color: #444444;
+  }
+
+  .dark.win98-container .loading-row td,
+  .win98-container.dark .loading-row td {
+    color: #aaaaaa;
+  }
+</style>
+<style>
+  /* Mobile scrolling fixes */
+  @media (max-width: 768px) {
+    /* Ensure panels don't have fixed heights that cut off content */
+    .panel-content {
+      height: auto !important;
+      max-height: 250px !important; /* Increase max-height to allow more content to be shown */
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 10px; /* Add padding to ensure last items are visible */
+    }
+
+    /* Fix table layout on small screens */
+    .win98-table {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    /* Ensure the container allows full scrolling */
+    .win98-container {
+      overflow-x: hidden;
+      padding-bottom: 30px; /* Add extra padding at the bottom */
+    }
+
+    /* Space between panels */
+    .panel {
+      margin-bottom: 20px;
+    }
+
+    /* Force scrollable areas to be fully scrollable */
+    .panel-content:after {
+      content: "";
+      display: block;
+      height: 20px; /* More padding space at the bottom */
+      visibility: hidden;
+    }
+
+    /* Ensure panel content's parent doesn't restrict height */
+    .music-panels {
+      overflow: visible;
+    }
+  }
+
+  /* Fix for the last panel specifically */
+  @media (max-width: 768px) {
+    .music-panels > .panel:last-child .panel-content {
+      max-height: 300px !important; /* Even more height for the last panel */
+    }
+  }
+</style>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
