@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Megat Zafran">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan0303, megat, ilikeronnnnii">
+
+
+<title>Cydes Final 25 | aan0303</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Cydes Final 25</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Megat Zafran</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 3, 2025&nbsp;&nbsp;13:49:54</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Writeups/">Writeups</a>
+                            
+                                <a href="/categories/Writeups/Local-Competition/">Local Competition</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h1><p>How do I say it, I wasn’t expecting anything like this at all… its kinda hardware-jeorpardy ish</p>
+<p>Actually, a day after this event I have to present my fyp, so I’m literally traveling back and forth between Johor like crazy.</p>
+<p>People usually do this kind of thing for their gf, but I’m doing it for ctf 😭.</p>
+<p><img src="/images/cydes/ables.jpg" alt="alt text"></p>
+<h1 id="Format-Overview"><a href="#Format-Overview" class="headerlink" title="Format Overview"></a>Format Overview</h1><p>The format of the competition is really unique I would say and it consists immense amount of hardware hacking knowledge, to be more specific the usage of proxmark.</p>
+<p>Luckily my group mate, @TanSc was there and he literally cloned a couple of cards before using his own phone, so proxmark should not be a problem for him.</p>
+<p>There are multiple stages btw, and if you didn’t managed to solve the previous stage you couldn’t proceed to solve the other one and its something like this :-</p>
+<ol>
+<li>Stage 0 - Card Cracking</li>
+<li>Stage 1 - Open Sesame</li>
+<li>Stage 2 - Scada Hacking</li>
+</ol>
+<h1 id="Stage-0-Card-Cracking-Token"><a href="#Stage-0-Card-Cracking-Token" class="headerlink" title="Stage 0 - Card Cracking (Token)"></a>Stage 0 - Card Cracking (Token)</h1><p>So for us to access stage 1, we need to get the token available inside the card (solving stage 0 first)</p>
+<p><img src="/images/cydes/token.png" alt="alt text"></p>
+<p>Stage 0 is quite easy all you need to do is crack the MIFARE keys of the card, and then dump the data contained inside it.</p>
+<p><img src="/images/cydes/card.jpg" alt="alt text"></p>
+<p><code>hf mf darkside</code> command to recover the first key of the card</p>
+<p><code>hf mf nested</code> use first key to find other keys</p>
+<p><code>hf mf dump</code> extract all data once keys are owned</p>
+<p>Here is the data that was dumped it is in hex <code>746F6B656E3A65383734386534306336 0000000000000000000000000</code></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// Convert the <span class="built_in">hex</span> string to text</span><br><span class="line">const hexString = <span class="string">&quot;746F6B656E3A65383734386534306336&quot;</span>;</span><br><span class="line">const textResult = hexString.<span class="keyword">match</span>(/.&#123;<span class="number">1</span>,<span class="number">2</span>&#125;/g).<span class="built_in">map</span>(byte =&gt; String.fromCharCode(parseInt(byte, <span class="number">16</span>))).join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">console.log(<span class="string">&quot;Decoded text:&quot;</span>, textResult);</span><br></pre></td></tr></table></figure>
+
+<p>Change it to text from hex, and we got the token to access the web panel, and vpn file (will come in handy for stage 2 instances) for our team!</p>
+<p><img src="/images/cydes/image-1.png" alt="alt text"></p>
+<h1 id="Stage-1-Open-Sesame-Watson"><a href="#Stage-1-Open-Sesame-Watson" class="headerlink" title="Stage 1 - Open Sesame (Watson)"></a>Stage 1 - Open Sesame (Watson)</h1><p>Okay for this part right here its a little bit tricky.</p>
+<p>They actually gave us the Raspberry Pi image a day before, and we need to find out where are the challenges located inside the image, so it is actually testing out our forensic knowledge here.</p>
+<p>Challenges were found at <code>/opt/janus</code> and this is the one to solve <code>watson</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">watson</span>(<span class="params">uid, blocks</span>):</span><br><span class="line">    _, node, release, *_ = platform.uname()</span><br><span class="line">    codename = platform.freedesktop_os_release()[<span class="string">&#x27;VERSION_CODENAME&#x27;</span>]</span><br><span class="line">    _, ver = platform.libc_ver()</span><br><span class="line">    checks = [uid, node.encode(), release.encode(), codename.encode(), ver.encode()]</span><br><span class="line">    <span class="keyword">for</span> check, block <span class="keyword">in</span> <span class="built_in">zip</span>(checks, blocks):</span><br><span class="line">        <span class="keyword">if</span> hashlib.md5(check).digest() != block:</span><br><span class="line">            send_error(<span class="string">f&#x27;watson: invalid block [<span class="subst">&#123;block.<span class="built_in">hex</span>()&#125;</span>]&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>So we need to use the card given, and fill it with the raspberry pi infos :-</p>
+<ol>
+<li>the UID of our team’s card</li>
+<li>the node hostname</li>
+<li>the kernel release string</li>
+<li>the OS codename</li>
+<li>the C library version</li>
+</ol>
+<p>Computes an MD5 of each piece and compares to one block each (data block)</p>
+<ol>
+<li>3d955d7444c80970660bc3233ba398b6</li>
+<li>df256845c7212af8a6ef1a25d13ba7be</li>
+<li>b879b8d65ca0895296e64e3e87928d10</li>
+<li>e0bfa30ac77faf071cda9e9af49d9bcc</li>
+<li>46ef89558baf4b56a4c29fe69c21ab10</li>
+</ol>
+<p>All infos can be collected like so:-</p>
+<p>Mount the raspberry pi image and do the following to get:-</p>
+<ol>
+<li>node hostname</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/hostname</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>kernel release string</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌──(aan㉿aan)-[/mnt/pi]</span><br><span class="line">└─$ <span class="built_in">ls</span> /mnt/pi/lib/modules/</span><br><span class="line">6.12.25+rpt-rpi-2712  6.12.25+rpt-rpi-v8</span><br></pre></td></tr></table></figure>
+
+<p>Tried both version turns out this one works <code>6.12.25+rpt-rpi-v8</code></p>
+<ol start="3">
+<li>OS codename</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">┌──(aan㉿aan)-[/mnt/pi]</span><br><span class="line">└─$ <span class="built_in">cat</span> /mnt/pi/etc/os-release</span><br><span class="line">PRETTY_NAME=<span class="string">&quot;Debian GNU/Linux 12 (bookworm)&quot;</span></span><br><span class="line">NAME=<span class="string">&quot;Debian GNU/Linux&quot;</span></span><br><span class="line">VERSION_ID=<span class="string">&quot;12&quot;</span></span><br><span class="line">VERSION=<span class="string">&quot;12 (bookworm)&quot;</span></span><br><span class="line">VERSION_CODENAME=bookworm</span><br><span class="line">ID=debian</span><br><span class="line">HOME_URL=<span class="string">&quot;https://www.debian.org/&quot;</span></span><br><span class="line">SUPPORT_URL=<span class="string">&quot;https://www.debian.org/support&quot;</span></span><br><span class="line">BUG_REPORT_URL=<span class="string">&quot;https://bugs.debian.org/&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>It’s <code>bookworm</code></p>
+<ol start="4">
+<li>C Library Version</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">┌──(aan㉿aan)-[/mnt/pi/lib]</span><br><span class="line">└─$ grep -A10 <span class="string">&quot;Package: libc6$&quot;</span> /mnt/pi/var/lib/dpkg/status | grep Version</span><br><span class="line">Version: 2.36-9+rpt2+deb12u10</span><br></pre></td></tr></table></figure>
+
+<p>It’s <code>2.36</code></p>
+<p>Now we need to overwrite the data into the card’s data block, can use proxmork given</p>
+<p><img src="/images/cydes/image-2.png" alt="alt text"></p>
+<p>Scan it to the scada platform and cross your finger, it will blink green if it works!</p>
+<h1 id="Stage-2-Scada-Hacking-Billboard"><a href="#Stage-2-Scada-Hacking-Billboard" class="headerlink" title="Stage 2 - Scada Hacking (Billboard)"></a>Stage 2 - Scada Hacking (Billboard)</h1><p><img src="/images/cydes/image-3.png" alt="alt text"></p>
+<p>This challenge I think had the most fun cuz its finally related to what I love which is web exploitation!</p>
+<p>On the website, we can actually see a couple of billboards that we can control. Our main goal is actually to obtain the key to use it to forge a signature before transmitting emergency messages to electronic billboards</p>
+<p><img src="/images/cydes/image-3.jpg" alt="alt text"></p>
+<p>We found a file upload functionality here, and retrieve its path by pressing a button or something I forgot what it was</p>
+<p><img src="/images/cydes/meow.jpg" alt="alt text"></p>
+<p>So we figured out how to upload a webshell by sending a file with the byte signature of a webp file, but the content after the signature is actually a php code xd</p>
+<p>Request<br><img src="/images/cydes/request.jpg" alt="alt text"></p>
+<p>Response<br><img src="/images/cydes/response.jpg" alt="alt text"></p>
+<p>From here we enumerated the source code of the web application and found the value of the secret key obtained from <code>EMERGENCY_SECRET_KEY</code> which can be retrieved from <code>phpinfo()</code> function.</p>
+<p><img src="/images/cydes/source.png" alt="alt text"></p>
+<p><img src="/images/cydes/drrrr.jpg" alt="alt text"></p>
+<p>Here from this part Sc signed the message using the signature and we pwned the billboard</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Megat Zafran</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2025/07/04/cydes-final/">https://ilikeronnnnii.github.io/2025/07/04/cydes-final/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2025/07/01/cydes-qualifier/">Cydes Qualifier 25</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Megat Zafran | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
