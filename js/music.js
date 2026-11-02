@@ -56,30 +56,149 @@
     return cell;
   }
 
-  // --------------------------------------------------------------- stats
-  var statsHost = document.getElementById("stats");
-  if (statsHost) {
-    [
-      [A.stats.scrobbles, "scrobbles", "media_player-0.png"],
-      [A.stats.artists, "artists", "users-0.png"],
-      [A.stats.tracks, "tracks", "cd_audio_cd-0.png"],
-      [A.stats.albums, "albums", "directory_favorites-5.png"]
-    ].forEach(function (row) {
-      var tile = el("div", "stat");
+  // -------------------------------------------------------------- stickers
+  // a tiny elastic-square-billiards sim: stickers fly, bounce off the walls of
+  // the profile block and off each other, and pass behind the avatar/name/link
+  var wall = document.getElementById("sticker-wall");
+  if (wall && window.STICKERS) {
+    var compact = window.matchMedia("(max-width: 760px)").matches;
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var files = compact ? window.STICKERS.slice(0, 18) : window.STICKERS;
+    var bodies = [];
+    var raf = null;
+    var last = 0;
 
-      var icon = el("img", "stat-icon");
-      icon.src = "/images/listening/icons/" + row[2];
-      icon.width = 16;
-      icon.height = 16;
-      icon.alt = "";
-      tile.appendChild(icon);
+    files.forEach(function (file) {
+      var sticker = el("span", "sticker");
+      var img = el("img");
+      img.src = "/images/listening/tiny/" + file;
+      img.alt = "";
+      img.decoding = "async";
+      img.addEventListener("error", function () {
+        sticker.remove();
+      });
+      sticker.appendChild(img);
+      wall.appendChild(sticker);
+    });
 
-      var body = el("div", "stat-body");
-      body.appendChild(el("span", "stat-value", num(row[0])));
-      body.appendChild(el("span", "stat-label", row[1]));
-      tile.appendChild(body);
+    function measure() {
+      bodies = [];
+      var w = wall.clientWidth, h = wall.clientHeight;
+      [].forEach.call(wall.children, function (sticker, i) {
+        var bw = sticker.offsetWidth || 0;
+        var bh = sticker.offsetHeight || 0;
+        if (bw < 4 || bh < 4) return;
+        var speed = compact ? 90 : 155;
+        var dir = i % 2 ? 1 : -1;
+        bodies.push({
+          el: sticker,
+          w: bw,
+          h: bh,
+          x: Math.random() * Math.max(1, w - bw),
+          y: Math.random() * Math.max(1, h - bh),
+          vx: dir * (speed + Math.random() * speed * 1.25),
+          vy: (Math.random() < 0.5 ? -1 : 1) * (speed + Math.random() * speed * 1.25),
+          a: ((i * 37) % 21) - 10,
+          va: ((i % 2 ? 1 : -1) * (30 + (i * 7) % 90))
+        });
+      });
+    }
 
-      statsHost.appendChild(tile);
+    function step(ts) {
+      if (!last) last = ts;
+      var dt = Math.min(0.05, (ts - last) / 1000);
+      last = ts;
+      var w = wall.clientWidth, h = wall.clientHeight;
+      var i, b, other;
+
+      for (i = 0; i < bodies.length; i++) {
+        b = bodies[i];
+        b.x += b.vx * dt;
+        b.y += b.vy * dt;
+        b.a += b.va * dt;
+        if (b.x < 0) { b.x = 0; b.vx = Math.abs(b.vx); }
+        if (b.y < 0) { b.y = 0; b.vy = Math.abs(b.vy); }
+        if (b.x + b.w > w) { b.x = w - b.w; b.vx = -Math.abs(b.vx); }
+        if (b.y + b.h > h) { b.y = h - b.h; b.vy = -Math.abs(b.vy); }
+      }
+
+      // pairwise collisions (43 bodies -> ~900 checks a frame, cheap)
+      for (i = 0; i < bodies.length; i++) {
+        b = bodies[i];
+        for (var k = i + 1; k < bodies.length; k++) {
+          other = bodies[k];
+          var dx = (other.x + other.w / 2) - (b.x + b.w / 2);
+          var dy = (other.y + other.h / 2) - (b.y + b.h / 2);
+          var rad = (Math.min(b.w, b.h) + Math.min(other.w, other.h)) * 0.34;
+          var d2 = dx * dx + dy * dy;
+          if (d2 === 0 || d2 > rad * rad) continue;
+
+          var d = Math.sqrt(d2);
+          var nx = dx / d;
+          var ny = dy / d;
+          var bv = b.vx * nx + b.vy * ny;
+          var ov = other.vx * nx + other.vy * ny;
+          if (bv - ov <= 0) continue;   // already separating
+
+          // equal-mass elastic exchange along the contact normal
+          var swap = (ov - bv);
+          b.vx += swap * nx;
+          b.vy += swap * ny;
+          other.vx -= swap * nx;
+          other.vy -= swap * ny;
+
+          var push = (rad - d) / 2;
+          b.x -= nx * push;
+          b.y -= ny * push;
+          other.x += nx * push;
+          other.y += ny * push;
+        }
+      }
+
+      for (i = 0; i < bodies.length; i++) {
+        b = bodies[i];
+        b.el.style.transform = "translate3d(" + b.x.toFixed(1) + "px," +
+          b.y.toFixed(1) + "px,0) rotate(" + b.a.toFixed(1) + "deg)";
+      }
+
+      raf = requestAnimationFrame(step);
+    }
+
+    function kick() {
+      if (still) {
+        // no motion: just lay them out once
+        measure();
+        bodies.forEach(function (b) {
+          b.el.style.transform = "translate3d(" + b.x.toFixed(0) + "px," +
+            b.y.toFixed(0) + "px,0) rotate(" + b.a.toFixed(0) + "deg)";
+        });
+        return;
+      }
+      measure();
+      if (raf) cancelAnimationFrame(raf);
+      last = 0;
+      raf = requestAnimationFrame(step);
+    }
+
+    // images decide their own width, so wait for them before measuring
+    window.addEventListener("load", function () {
+      setTimeout(kick, 250);
+    });
+
+    var rt = null;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt);
+      rt = setTimeout(kick, 250);
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden && raf) {
+        cancelAnimationFrame(raf);
+        raf = null;
+      } else if (!document.hidden && !raf && !still) {
+        last = 0;
+        raf = requestAnimationFrame(step);
+      }
     });
   }
 

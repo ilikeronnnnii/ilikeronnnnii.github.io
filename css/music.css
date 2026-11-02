@@ -114,17 +114,20 @@ body.dark-theme .window-body {
 
 /* --------------------------------------------------------------- profile */
 .profile {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 232px;
+  padding: 4px 0;
   margin-bottom: 12px;
-  background: var(--face-hi);
-  border: 2px solid;
-  border-color: var(--edge-dark) var(--edge-light) var(--edge-light) var(--edge-dark);
+  background: none;
+  border: 0;
 }
 
 .avatar {
+  position: relative;
+  z-index: 3;
   width: 72px;
   height: 72px;
   object-fit: cover;
@@ -133,22 +136,42 @@ body.dark-theme .window-body {
   background: var(--edge-light);
 }
 
-.profile-text { flex: 1; min-width: 0; }
+.profile-text { position: relative; z-index: 3; flex: 0 1 auto; min-width: 0; }
 
-.profile-name {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.2;
-  color: var(--text);
-  border: 0;
-  padding: 0;
-  font-family: inherit;
+/* wall of tiny web-1.0 gifs -- a physics layer that sits behind the identity */
+.sticker-wall {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.profile-sub { margin: 4px 0 0; font-size: 12px; color: var(--dim); }
+.sticker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 0;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.sticker img {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+
+.sticker:nth-child(3n) img { height: 42px; }
+.sticker:nth-child(4n + 1) img { height: 26px; }
+.sticker:nth-child(7n) img { height: 50px; }
+.sticker:nth-child(9n) img { height: 22px; }
 
 .profile-badge {
-  align-self: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
   padding: 1px 6px;
   border: 1px solid var(--edge-dark);
   background: var(--lcd-bg);
@@ -304,53 +327,6 @@ kbd {
   background: var(--face-hi);
   font-family: inherit;
   font-size: 11px;
-}
-
-/* ----------------------------------------------------------------- stats */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.stat {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 8px;
-  background: var(--face);
-  border: 2px solid;
-  border-color: var(--edge-light) var(--edge-dark) var(--edge-dark) var(--edge-light);
-}
-
-.stat-icon { display: block; flex: 0 0 16px; }
-
-.stat-body { min-width: 0; flex: 1; }
-
-.stat-value {
-  display: block;
-  padding: 1px 5px;
-  font-family: ui-monospace, "Lucida Console", "Courier New", monospace;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  font-variant-numeric: tabular-nums;
-  color: var(--text);
-  background: var(--edge-light);
-  border: 1px solid;
-  border-color: var(--edge-dark) var(--edge-light) var(--edge-light) var(--edge-dark);
-}
-
-body.dark-theme .stat-value { background: #191919; }
-
-.stat-label {
-  display: block;
-  margin-top: 2px;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--dim);
 }
 
 /* ---------------------------------------------------------------- panels */
@@ -573,12 +549,18 @@ body.dark-theme .plays { background: #191919; border-color: #000; }
 @media (max-width: 760px) {
   .music-app { padding: 12px 8px 32px; }
   .columns { grid-template-columns: 1fr; }
-  .stats { grid-template-columns: repeat(2, 1fr); }
   .profile { gap: 10px; }
   .avatar { width: 64px; height: 64px; }
   .profile-name { font-size: 15px; }
   .profile-badge { display: none; }
   .panel-scroll { max-height: none; }
+  /* mobile: shorter field, smaller stickers, half the count (handled in js) */
+  .profile { min-height: 196px; }
+  .sticker img { height: 26px; }
+  .sticker:nth-child(3n) img { height: 32px; }
+  .sticker:nth-child(4n + 1) img { height: 20px; }
+  .sticker:nth-child(7n) img { height: 38px; }
+  .sticker:nth-child(9n) img { height: 18px; }
   .titlebar-text { font-size: 11px; }
 }
 
@@ -600,6 +582,7 @@ body.dark-theme .plays { background: #191919; border-color: #000; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .vu i { animation: none; height: 40%; }
   .player[data-state="playing"] #lcd-state { animation: none; }
   .seek-fill { transition: none; }
